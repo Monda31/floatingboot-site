@@ -107,6 +107,12 @@
     display:flex;align-items:center;justify-content:space-between;
     padding-block:16px;gap:16px;
   }
+  .nav-links{display:flex;align-items:center;gap:20px;}
+  .nav-link{
+    font-family:'Big Shoulders Display',sans-serif;font-weight:700;text-transform:uppercase;
+    letter-spacing:0.06em;font-size:0.85rem;color:var(--ink);text-decoration:none;
+  }
+  .nav-link:hover{color:var(--terracotta);}
   .wordmark{
     font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;
     letter-spacing:0;display:flex;align-items:baseline;gap:6px;
@@ -244,7 +250,10 @@
 <nav>
   <div class="wrap row">
     <div class="wordmark">Floating <em>Boot</em></div>
-    <a class="btn ghost" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener">Shop the Store</a>
+    <div class="nav-links">
+      <a class="nav-link" href="/journal/">Journal</a>
+      <a class="btn ghost" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener">Shop the Store</a>
+    </div>
   </div>
 </nav>
 
