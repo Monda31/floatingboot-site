@@ -1,0 +1,378 @@
+<title>Floating Boot</title>
+<style>
+  :root{
+    --ink:#123B4F;
+    --ink-2:#0A2733;
+    --paper:#EFE6D4;
+    --paper-2:#E4D7BC;
+    --wave:#2E7FA6;
+    --wave-soft:#5BA9C9;
+    --seal:#C1592E;
+    --brass:#D6A23C;
+    --text-on-ink:#EDE6D6;
+    --text-on-ink-dim:#9FB0C4;
+    --text-on-paper:#1A2B3E;
+    --text-on-paper-dim:#5C6B7A;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:border-box;}
+  body{
+    background:var(--ink);
+    color:var(--text-on-ink);
+    font-family:'Work Sans',ui-sans-serif,system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',Georgia,'Times New Roman',serif;
+    font-optical-sizing:auto;
+    text-wrap:balance;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .eyebrow{
+    font-family:'Big Shoulders Display',ui-sans-serif,sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.78rem;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding-inline:20px;
+  }
+  @media(min-width:640px){.wrap{padding-inline:40px;}}
+
+  /* ---- nav ---- */
+  nav{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+    background:rgba(18,37,59,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(237,230,214,0.12);
+  }
+  nav .row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-block:16px;gap:16px;
+  }
+  .wordmark{
+    font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;
+    letter-spacing:0;display:flex;align-items:baseline;gap:6px;
+  }
+  .wordmark em{font-style:italic;color:var(--wave-soft);}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Big Shoulders Display',sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.08em;font-size:0.85rem;
+    padding:12px 22px;border-radius:2px;
+    background:var(--seal);color:#F6EEE4;
+    border:1px solid var(--seal);
+    text-decoration:none;white-space:nowrap;
+    transition:transform 0.15s ease, background 0.15s ease;
+  }
+  .btn:hover{background:#A93A26;transform:translateY(-1px);}
+  .btn.ghost{
+    background:transparent;color:var(--text-on-ink);
+    border:1px solid rgba(237,230,214,0.35);
+  }
+  .btn.ghost:hover{border-color:var(--brass);color:var(--brass);}
+
+  /* ---- hero ---- */
+  .hero{position:relative;overflow:hidden;padding-block:64px 0;}
+  .hero-grid{
+    display:grid;gap:28px;align-items:center;
+    grid-template-columns:1fr;padding-bottom:40px;
+  }
+  @media(min-width:860px){.hero-grid{grid-template-columns:1.15fr 0.85fr;padding-bottom:0;}}
+  .hero-eyebrow{color:var(--brass);margin-bottom:18px;}
+  .hero h1{font-size:clamp(2.4rem,6vw,4.3rem);line-height:1.02;font-weight:600;}
+  .hero h1 .rule{color:var(--wave-soft);}
+  .hero p.lede{
+    font-size:1.08rem;line-height:1.6;color:var(--text-on-ink-dim);
+    max-width:46ch;margin-top:20px;
+  }
+  .hero .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;}
+  .hero-fact{
+    margin-top:28px;font-size:0.85rem;color:var(--text-on-ink-dim);
+    display:flex;align-items:center;gap:10px;
+  }
+  .hero-fact .dot{width:6px;height:6px;border-radius:50%;background:var(--seal);flex:none;}
+
+  .wave-scene{position:relative;aspect-ratio:4/3;}
+  .wave-scene svg{width:100%;height:100%;}
+  .wave-a{animation:driftA 14s ease-in-out infinite;}
+  .wave-b{animation:driftB 18s ease-in-out infinite;}
+  @keyframes driftA{0%,100%{transform:translateX(0)}50%{transform:translateX(-14px)}}
+  @keyframes driftB{0%,100%{transform:translateX(0)}50%{transform:translateX(12px)}}
+  @media(prefers-reduced-motion:reduce){.wave-a,.wave-b{animation:none;}}
+
+  .wave-divider{display:block;width:100%;height:auto;margin-top:48px;}
+
+  /* ---- concept ---- */
+  .concept{padding-block:64px;border-top:1px solid rgba(237,230,214,0.12);border-bottom:1px solid rgba(237,230,214,0.12);}
+  .concept-grid{display:grid;gap:0;grid-template-columns:1fr;}
+  @media(min-width:760px){.concept-grid{grid-template-columns:1fr 1px 1fr;}}
+  .concept-div{background:rgba(237,230,214,0.12);}
+  .concept-col{padding:8px 0;}
+  @media(min-width:760px){.concept-col:first-child{padding-right:48px;}.concept-col:last-child{padding-left:48px;}}
+  .concept-tag{color:var(--wave-soft);margin-bottom:14px;}
+  .concept-col h2{font-size:1.7rem;font-weight:600;margin-bottom:14px;}
+  .concept-col p{color:var(--text-on-ink-dim);line-height:1.7;font-size:1rem;}
+  .concept-col.floating .concept-tag{color:var(--brass);}
+
+  /* ---- collection ---- */
+  .collection{background:var(--paper);color:var(--text-on-paper);padding-block:72px;}
+  .collection-head{
+    display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-end;
+    margin-bottom:36px;
+  }
+  .collection-head h2{font-size:clamp(1.8rem,3.6vw,2.5rem);font-weight:600;color:var(--text-on-paper);}
+  .collection-head .eyebrow{color:var(--seal);margin-bottom:10px;}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;}
+  .tab{
+    font-family:'Big Shoulders Display',sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.06em;font-size:0.82rem;
+    padding:9px 16px;border-radius:999px;border:1px solid rgba(26,43,62,0.25);
+    background:transparent;color:var(--text-on-paper-dim);cursor:pointer;
+  }
+  .tab[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+
+  .grid{
+    display:grid;gap:28px;
+    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  }
+  .card{
+    background:#F6F1E6;border:1px solid rgba(26,43,62,0.1);
+    display:flex;flex-direction:column;overflow:hidden;
+    text-decoration:none;color:inherit;
+    transition:transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px -18px rgba(18,37,59,0.45);}
+  .shot{
+    aspect-ratio:4/5;background:var(--paper-2);position:relative;overflow:hidden;
+  }
+  .shot img{width:100%;height:100%;object-fit:cover;}
+  .card-tag{
+    position:absolute;top:10px;left:10px;
+    font-family:'Big Shoulders Display',sans-serif;font-size:0.68rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.08em;
+    background:var(--ink);color:var(--paper);padding:4px 9px;
+  }
+  .card-body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:6px;flex:1;}
+  .card-body h3{
+    font-family:'Fraunces',serif;font-weight:500;font-size:1.02rem;line-height:1.3;
+  }
+  .card-price{
+    margin-top:auto;display:flex;align-items:center;justify-content:space-between;
+    font-variant-numeric:tabular-nums;padding-top:8px;
+  }
+  .card-price .amt{font-weight:600;font-size:1.02rem;}
+  .card-price .view{
+    font-family:'Big Shoulders Display',sans-serif;font-size:0.75rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.06em;color:var(--seal);
+  }
+
+  /* ---- closing cta ---- */
+  .closing{
+    padding-block:80px;text-align:center;position:relative;
+    border-top:1px solid rgba(237,230,214,0.12);
+  }
+  .closing h2{font-size:clamp(2rem,5vw,3rem);font-weight:600;max-width:22ch;margin:0 auto;}
+  .closing p{color:var(--text-on-ink-dim);margin-top:16px;max-width:50ch;margin-inline:auto;}
+  .closing .btn{margin-top:32px;}
+
+  footer{
+    border-top:1px solid rgba(237,230,214,0.12);
+    padding-block:32px;
+  }
+  footer .row{
+    display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;
+    font-size:0.82rem;color:var(--text-on-ink-dim);
+  }
+  footer a.store-link{color:var(--brass);text-decoration:none;border-bottom:1px solid rgba(184,145,47,0.4);}
+</style>
+
+<nav>
+  <div class="wrap row">
+    <div class="wordmark">Floating <em>Boot</em></div>
+    <a class="btn ghost" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener">Shop the Store</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow hero-eyebrow">Graphic Tees · Da Como al Colosseo</div>
+      <h1>Italy, drawn like<br>the other <span class="rule">Boot</span>.</h1>
+      <p class="lede">The Duomo, the Colosseo, the water at Como — landmarks Italy has painted for centuries. We draw them again in a single woodblock line, borrowed from ukiyo-e, printed on a tee.</p>
+      <div class="cta-row">
+        <a class="btn" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener">Browse New Merch →</a>
+        <a class="btn ghost" href="#collection">See the Collection</a>
+      </div>
+      <div class="hero-fact"><span class="dot"></span>Shipping worldwide, priced in 17 currencies.</div>
+    </div>
+    <div class="wave-scene" aria-hidden="true">
+      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet">
+        <rect x="0" y="0" width="400" height="300" fill="#0A2733"/>
+        <g class="sunburst">
+          <circle cx="320" cy="86" r="30" fill="#D6A23C"/>
+          <g stroke="#D6A23C" stroke-width="3" stroke-linecap="round" opacity="0.85">
+            <line x1="320" y1="24" x2="320" y2="6"/>
+            <line x1="368" y1="40" x2="381" y2="27"/>
+            <line x1="384" y1="86" x2="402" y2="86"/>
+            <line x1="272" y1="40" x2="259" y2="27"/>
+          </g>
+        </g>
+        <path d="M40,150 L40,210 L62,210 L62,170 L74,170 L74,210 L96,210 L96,150 L58,128 Z" fill="#1B4A5F"/>
+        <rect x="150" y="120" width="26" height="90" fill="#1B4A5F"/>
+        <path d="M150,120 L163,96 L176,120 Z" fill="#1B4A5F"/>
+        <rect x="180" y="140" width="18" height="70" fill="#1B4A5F"/>
+        <ellipse cx="238" cy="176" rx="16" ry="40" fill="#2F5A44"/>
+        <ellipse cx="256" cy="184" rx="13" ry="32" fill="#2F5A44"/>
+        <path class="wave-a" d="M-20,214 C70,196 120,228 200,214 C280,198 320,226 420,212 L420,320 L-20,320 Z" fill="#1B4A5F"/>
+        <path class="wave-b" d="M-20,236 C80,222 140,248 220,236 C300,222 340,246 420,234 L420,320 L-20,320 Z" fill="#2E7FA6" opacity="0.9"/>
+        <path d="M-20,258 C90,246 150,268 230,258 C310,246 350,266 420,256" fill="none" stroke="#EFE6D4" stroke-width="2.5" opacity="0.65"/>
+      </svg>
+    </div>
+  </div>
+  <svg class="wave-divider" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 C150,10 300,50 450,30 C600,10 750,50 900,30 C1050,10 1150,40 1200,28 L1200,60 L0,60 Z" fill="var(--paper)" opacity="0"></path>
+  </svg>
+</header>
+
+<section class="concept">
+  <div class="wrap concept-grid">
+    <div class="concept-col floating">
+      <div class="eyebrow concept-tag">Lo Stivale — The Boot</div>
+      <h2>Every tee starts with a place.</h2>
+      <p>Milan's Duomo, the Colosseo, the light on Lake Como — the same landmarks that filled 1950s Italian travel posters. We redraw them in vintage-lithograph linework and in flat, minimal outline, city by city, the way a good travel poster always did.</p>
+    </div>
+    <div class="concept-div"></div>
+    <div class="concept-col">
+      <div class="eyebrow concept-tag">Ukiyo-e — The Technique</div>
+      <h2>Then we fold in a wave.</h2>
+      <p>One edition per landmark borrows the woodblock line of Japanese ukiyo-e — the swell of a Hokusai wave, flattened perspective, bold negative space — and wraps it around the same Italian skyline. Same subject, one extra technique.</p>
+    </div>
+  </div>
+</section>
+
+<section class="collection" id="collection">
+  <div class="wrap">
+    <div class="collection-head">
+      <div>
+        <div class="eyebrow">Full Catalog · $59–$69</div>
+        <h2>Nine tees, three techniques.</h2>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Filter by collection">
+        <button class="tab" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="tab" type="button" data-filter="vintage" aria-pressed="false">Vintage Travel</button>
+        <button class="tab" type="button" data-filter="line" aria-pressed="false">Minimal Line</button>
+        <button class="tab" type="button" data-filter="ukiyo" aria-pressed="false">Ukiyo-e Wave</button>
+      </div>
+    </div>
+
+    <div class="grid" id="product-grid"></div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>Wear the Boot.</h2>
+    <p>Every design here ships from the Floating Boot store on Fourthwall — secure checkout, worldwide delivery, no detour.</p>
+    <a class="btn" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener">Shop Floating Boot →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap row">
+    <div class="wordmark" style="font-size:1rem;">Floating <em>Boot</em></div>
+    <div>Store hosted on <a class="store-link" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener">Fourthwall</a></div>
+    <div>© 2026 Floating Boot</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var BASE = "https://floatingboot-shop.fourthwall.com";
+  var products = [
+    {name:"Portocervo Waves Tee — Ukiyo-e Edition", price:65, tag:"ukiyo", tagLabel:"Ukiyo-e Wave", slug:"portocervo-waves-tee-ukiyo-e-edition",
+      img:"https://imgproxy.fourthwall.dev/yU4Ei5Mj76qkxmXk_s2PpWtUTaPNJ9wLxBky08yqUzk/w:720/sm:1/enc/ztjFaHdPBpwyMJnX/HBHaHYUjRzq6haSv/-KIrCoAXiKP3KfNw/Yj5u4mGv0IJjbNqk/DCoUrZ7PJlfb1h-h/9MNkp-2hclBXsHWe/OwL6eQVpgr4SE-Ej/IhnVL59mEdrOidKr/VyI3X1-jXzQSkt_W/tSDR2w8O7_EWViQi/J4OexlX8oOAMixUp/cprOCtcyNVQo_sck/q0DHFBhif79dPnal/PvqYZGJdJpQOLoNC/OtHCsiz-B4I.jpg"},
+    {name:"Como Tempio Voltiano — Ukiyo-e Wave Edition", price:63, tag:"ukiyo", tagLabel:"Ukiyo-e Wave", slug:"como-tempio-voltiano-ukiyo-e-wave-edition",
+      img:"https://imgproxy.fourthwall.dev/JOhFg8M7tyNGmnxzMScZ442oTP5QAwbphKKvX-shjZg/w:720/sm:1/enc/yIPUqtj4_q33bE2Q/0xwDM16BzYbpTKrV/BPu2fR4_O_h0KnNp/qpgc80JOGUBjhSZH/CO6fbLJNg7CnppOd/v9uRYGaSgrcxn5I-/hQ1oC1PMJmHrJqOl/WJYyRlaNvw_kegAp/zFmpfQdd_KoQoDn7/Us_ppJoI_MRKnfJa/d26lEW1HWNNg5Uls/VBrcXg07ZcrDujNd/MmVM8BKbh4qYIPEC/ieoQzHYjcf0C9wVp/LCyuPc-Qco8.jpg"},
+    {name:"Milan Duomo Ukiyo-e Woodblock Tee", price:59, tag:"ukiyo", tagLabel:"Ukiyo-e Wave", slug:"milan-duomo-ukiyo-e-woodblock-t-shirt-japanese-wave-art-tee",
+      img:"https://imgproxy.fourthwall.dev/cr13JIkrLZuA5ANbR2mqUb6NQllov6QK43mIJPiwJ7I/w:720/sm:1/enc/GjSBk52X4X2h1tDq/7wCyZ_uRGnnXqdx/scAh5o_BGZp93WZL/5vi2eUqpb_bsjXCv/TLyNNEoC561drhhI/xfZwGia__DmAiJ90/-yQg51VCUh5Ymjp8/wWnEwAbjiHCqfaFM/21J7xJrYEBuZvslD/Xro5We-8A_htWFHH/zc9VaYeyIyavKxl6/3my8nTLxHP2n_B-f/1F9x3J-4Zv3rPgef/DD27yWEF_6C0ojzO/K12neLIxlr4.jpg"},
+    {name:"Colosseo Italia — Ukiyo-e Wave Tee", price:59, tag:"ukiyo", tagLabel:"Ukiyo-e Wave", slug:"colosseo-italia-ukiyo-e-wave-tee",
+      img:"https://imgproxy.fourthwall.dev/gwfZ-da7A1PlkivuukdnVsMduJJ7IjhnV0q67QhRp48/w:720/sm:1/enc/bYlCN0suaOxLP2or/sOwI_nhxFKz-4pGg/Gso5w8iXZXHy-a65/gKOyKgqRv2OwWb-I/gR-NMJw14Z7uWfOq/WDvOL82Qa6WvuBpB/uTOfYq20iwOMzr5K/c9PFbf9R1ZgI2ogW/yGTxWPIBu6mGS97U/xTWOkl_5Zc2muZn4/1tdiKie95s3fkn0q/qipMsUe7dj47CjVT/4zEn7kvHc2Hlcq5i/0A9xwMLUHWvYf9wc/c3Y96zdpRDk.jpg"},
+    {name:"Colosseo — Floating Boot", price:59, tag:"ukiyo", tagLabel:"Ukiyo-e Wave", slug:"colosseo-floating-boot",
+      img:"https://imgproxy.fourthwall.dev/ZZMz16cpFkcwWld2gmX0MNDfYvpqa4dQ6NoloepoxE4/w:720/sm:1/enc/-lpdVSUBVCO9VeR7/k7gWYWa6WHj9F-ko/KSU_HPhQC9NGqz81/clPfvoOITCrvqqPe/wEvmoAv9wdW6c4FS/P5mtnYEpZg43qTCT/FyfllmzyMUMAkt84/l05X_Oq9Eofuwqoe/-9N_y10Ad4A9TYor/pASBWtsutgmOjU4i/glqZnyfSuaaKztQy/v2cCo_PpmVAjhytR/pli-L-ap0XA_ZbDi/GXibdh6DZtElfSzo/yScfPY3pBcA.jpg"},
+    {name:"Como Tempio Voltiano — Vintage 1950s Travel", price:59, tag:"vintage", tagLabel:"Vintage Travel", slug:"como-tempio-voltiano-vintage-1950s-travel",
+      img:"https://imgproxy.fourthwall.dev/Fdb9-LBNM9PSA_N30fgPkZd4T6HIjcH3QWlsoUSXIaE/w:720/sm:1/enc/HX2zYYurwGdlye0Y/QYkne6SVKS-ZLH_T/HjogGbZPAAIzzcL7/ieXMhC5fRNQKyYC5/-GPM74jbIel269t1/7ExE56zEA8-X2o8U/Zk68yZepR294f9L1/b3R4K3IecQtfAJCP/jRAnYgZjjDNp29GE/ECe6SrpyFMJ3DE3Z/5LMgp3Rw-41C5UUc/lrhqpMcD2RvkQ1Tx/s57fcTUebTCokgF_/aSCNCvNOIYQI6QLk/fGsqti5alYI.jpg"},
+    {name:"Classic Milan Duomo Vintage Lithograph Tee", price:59, tag:"vintage", tagLabel:"Vintage Travel", slug:"classic-milan-duomo-vintage-lithograph-t-shirt-italy-landmark-graphic-tee",
+      img:"https://imgproxy.fourthwall.dev/dfIfB0Gy7A0lO-AfHf1l07yYgZ66lZRZr1Hh80IHB1E/w:720/sm:1/enc/1NmvNt6PR7Ko6K9B/GSJQdEJws8nYx-7F/1DBhp_kxi3bUToS-/j59LtMRREO2uR5xZ.jpg"},
+    {name:"Milan Duomo Retro Travel Art Tee", price:59, tag:"vintage", tagLabel:"Vintage Travel", slug:"milan-duomo-retro-travel-art-t-shirt-italian-landmark-graphic-tee",
+      img:"https://imgproxy.fourthwall.dev/BFI8kvrEbXi3PrrzUlVhBAKSrY93CmxCRXuYwRj0G4E/w:720/sm:1/enc/zlZUxYoDmK_bfZyq/Io8_IMuNJhvMb9cr/270jdNggnqS_1s5W/nMN-8_s1lXKE_SCz/A9S-ijTJ6Owf1Z8l/1QVYJLf0kRGBegQO/IGHiYR07xqFc3WI6/uhbsQPWKk-KYDWjt/iBkFnv9jQqLDGfsl/UurDbwuxBM5eOxu2/AGW9qfSbi5LfRcsK/gcHfyR5JdEQwVJsp/eGAg9IySoj_qUhYe/-Jb3xXn7ORRVgml4/ikWNYfcR9IQ.jpg"},
+    {name:"Como Tempio Voltiano — Minimal Line Art", price:69, tag:"line", tagLabel:"Minimal Line", slug:"como-tempio-voltiano-minimal-line-art",
+      img:"https://imgproxy.fourthwall.dev/VkpfvM6_KbmdRWqydEtLl8d_7McGyi1iLu0dP15hL38/w:720/sm:1/enc/NJijJfyny6hrFM5I/ENIKWknn_VDqsce3/zit-FyFjpIXH4jk6/5pYMhEmoZKsj8y0d/J0doY_lIIjfqNeEP/aJh5FQQey2Dzi5Do/U-DR-hepOgD6lueE/O9Z84t28139JQuDp/x4akNw5YBnttT1NM/vZkZJs7aLF4sOAZ2/0LEG64re9V_LCtFD/FZ6PqK_VvfgPEg0G/o_pGlqxfF584YNx7/uVeR7YGwmSFU2Nzc/TWWzQ6G7WmI.jpg"}
+  ];
+
+  var grid = document.getElementById("product-grid");
+
+  function render(filter){
+    grid.innerHTML = "";
+    products.forEach(function(p){
+      if(filter !== "all" && p.tag !== filter) return;
+      var a = document.createElement("a");
+      a.className = "card";
+      a.href = BASE + "/products/" + p.slug;
+      a.target = "_blank";
+      a.rel = "noopener";
+
+      var shot = document.createElement("div");
+      shot.className = "shot";
+      var tagEl = document.createElement("span");
+      tagEl.className = "card-tag";
+      tagEl.textContent = p.tagLabel;
+      var img = document.createElement("img");
+      img.src = p.img;
+      img.alt = p.name;
+      img.loading = "lazy";
+      img.onerror = function(){ this.style.display = "none"; };
+      shot.appendChild(img);
+      shot.appendChild(tagEl);
+
+      var body = document.createElement("div");
+      body.className = "card-body";
+      var h3 = document.createElement("h3");
+      h3.textContent = p.name;
+      var priceRow = document.createElement("div");
+      priceRow.className = "card-price";
+      var amt = document.createElement("span");
+      amt.className = "amt";
+      amt.textContent = "$" + p.price.toFixed(2);
+      var view = document.createElement("span");
+      view.className = "view";
+      view.textContent = "View →";
+      priceRow.appendChild(amt);
+      priceRow.appendChild(view);
+      body.appendChild(h3);
+      body.appendChild(priceRow);
+
+      a.appendChild(shot);
+      a.appendChild(body);
+      grid.appendChild(a);
+    });
+  }
+
+  document.querySelectorAll(".tab").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      document.querySelectorAll(".tab").forEach(function(b){ b.setAttribute("aria-pressed","false"); });
+      btn.setAttribute("aria-pressed","true");
+      render(btn.getAttribute("data-filter"));
+    });
+  });
+
+  render("all");
+})();
+</script>
