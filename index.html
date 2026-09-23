@@ -7,7 +7,7 @@
 <meta name="description" content="Graphic tees, caps and sweatshirts that redraw Italy's landmarks and stadiums — the Duomo, the Colosseo, Como, San Siro, the Olimpico — in vintage travel-poster and ukiyo-e wave styles. Shop worldwide, $29–78.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://floatingboot.com/">
-<meta name="theme-color" content="#B85530">
+<meta name="theme-color" content="#0B0B0B">
 
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
@@ -56,48 +56,48 @@
   gtag("js", new Date());
   gtag("config", "G-F53Z3GN7YX");
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders+Display:wght@700;800&family=Work+Sans:wght@400;500;600;700&display=swap">
 <style>
   :root{
-    --ink:#26221C;
-    --ink-2:#171410;
-    --paper:#F2EAD9;
-    --paper-2:#E7D8B9;
-    --card:#F8F2E4;
-    --terracotta:#B85530;
-    --terracotta-deep:#93432A;
-    --ochre:#B4862F;
-    --cypress:#4E6350;
-    --text-dim:#6E6250;
-    --text-on-paper:#26221C;
-    --text-on-paper-dim:#6E6250;
+    --bg:#0B0B0B;
+    --bg-2:#161616;
+    --bg-3:#1F1F1F;
+    --ink:#FFFFFF;
+    --ink-dim:#9C9C9C;
+    --accent:#FF4B1F;
+    --accent-deep:#D93A15;
+    --line:rgba(255,255,255,0.14);
     padding-top:env(safe-area-inset-top,0px);
     padding-bottom:env(safe-area-inset-bottom,0px);
   }
   *{box-sizing:border-box;}
   body{
-    background:var(--paper);
+    background:var(--bg);
     color:var(--ink);
     font-family:'Work Sans',ui-sans-serif,system-ui,sans-serif;
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3,.display{
-    font-family:'Fraunces',Georgia,'Times New Roman',serif;
-    font-optical-sizing:auto;
-    text-wrap:balance;
+    font-family:'Anton',ui-sans-serif,sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
     letter-spacing:-0.01em;
+    line-height:0.96;
     margin:0;
   }
   .eyebrow{
     font-family:'Big Shoulders Display',ui-sans-serif,sans-serif;
-    font-weight:700;
+    font-weight:800;
     text-transform:uppercase;
-    letter-spacing:0.14em;
+    letter-spacing:0.16em;
     font-size:0.78rem;
+    color:var(--accent);
   }
   a{color:inherit;}
   img{max-width:100%;display:block;}
   .wrap{
-    max-width:1180px;
+    max-width:1240px;
     margin:0 auto;
     padding-inline:20px;
   }
@@ -106,9 +106,9 @@
   /* ---- nav ---- */
   nav{
     position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
-    background:rgba(242,234,217,0.9);
+    background:rgba(11,11,11,0.92);
     backdrop-filter:blur(8px);
-    border-bottom:1px solid rgba(38,34,28,0.1);
+    border-bottom:1px solid var(--line);
   }
   nav .row{
     display:flex;align-items:center;justify-content:space-between;
@@ -116,140 +116,143 @@
   }
   .nav-links{display:flex;align-items:center;gap:20px;}
   .nav-link{
-    font-family:'Big Shoulders Display',sans-serif;font-weight:700;text-transform:uppercase;
+    font-family:'Big Shoulders Display',sans-serif;font-weight:800;text-transform:uppercase;
     letter-spacing:0.06em;font-size:0.85rem;color:var(--ink);text-decoration:none;
   }
-  .nav-link:hover{color:var(--terracotta);}
+  .nav-link:hover{color:var(--accent);}
   .wordmark{
-    font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;
-    letter-spacing:0;display:flex;align-items:baseline;gap:6px;
+    font-family:'Anton',sans-serif;font-weight:400;font-size:1.3rem;text-transform:uppercase;
+    letter-spacing:0.01em;display:flex;align-items:baseline;gap:8px;
   }
-  .wordmark em{font-style:italic;color:var(--terracotta);}
+  .wordmark em{font-style:normal;color:var(--accent);}
   .btn{
     display:inline-flex;align-items:center;gap:8px;
-    font-family:'Big Shoulders Display',sans-serif;font-weight:700;
-    text-transform:uppercase;letter-spacing:0.08em;font-size:0.85rem;
-    padding:12px 22px;border-radius:2px;
-    background:var(--terracotta);color:#FBF4E9;
-    border:1px solid var(--terracotta);
+    font-family:'Big Shoulders Display',sans-serif;font-weight:800;
+    text-transform:uppercase;letter-spacing:0.06em;font-size:0.9rem;
+    padding:14px 26px;border-radius:0;
+    background:var(--accent);color:#0B0B0B;
+    border:2px solid var(--accent);
     text-decoration:none;white-space:nowrap;
-    transition:transform 0.15s ease, background 0.15s ease;
+    transition:transform 0.12s ease, background 0.12s ease;
   }
-  .btn:hover{background:var(--terracotta-deep);transform:translateY(-1px);}
+  .btn:hover{background:var(--accent-deep);border-color:var(--accent-deep);transform:translateY(-2px);}
   .btn.ghost{
     background:transparent;color:var(--ink);
-    border:1px solid rgba(38,34,28,0.3);
+    border:2px solid var(--ink);
   }
-  .btn.ghost:hover{border-color:var(--terracotta);color:var(--terracotta-deep);}
+  .btn.ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+  /* ---- marquee ---- */
+  .marquee{
+    background:var(--accent);color:#0B0B0B;overflow:hidden;
+    border-bottom:2px solid #0B0B0B;
+  }
+  .marquee-track{
+    display:flex;white-space:nowrap;width:max-content;
+    animation:scroll-left 22s linear infinite;
+  }
+  .marquee-track span{
+    font-family:'Big Shoulders Display',sans-serif;font-weight:800;
+    text-transform:uppercase;letter-spacing:0.06em;font-size:0.95rem;
+    padding:10px 28px;
+  }
+  @keyframes scroll-left{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+  @media(prefers-reduced-motion:reduce){.marquee-track{animation:none;}}
 
   /* ---- hero ---- */
-  .hero{position:relative;overflow:hidden;padding-block:64px 0;}
-  .hero-grid{
-    display:grid;gap:28px;align-items:center;
-    grid-template-columns:1fr;padding-bottom:40px;
-  }
-  @media(min-width:860px){.hero-grid{grid-template-columns:1.15fr 0.85fr;padding-bottom:0;}}
-  .hero-eyebrow{color:var(--text-dim);margin-bottom:18px;}
-  .hero h1{font-size:clamp(2.4rem,6vw,4.3rem);line-height:1.02;font-weight:600;}
-  .hero h1 .rule{color:var(--terracotta);}
+  .hero{position:relative;overflow:hidden;padding-block:72px 56px;border-bottom:1px solid var(--line);}
+  .hero h1{font-size:clamp(3.2rem,13vw,7.5rem);}
+  .hero h1 .accent{color:var(--accent);}
   .hero p.lede{
-    font-size:1.08rem;line-height:1.6;color:var(--text-dim);
-    max-width:46ch;margin-top:20px;
+    font-size:1.05rem;line-height:1.55;color:var(--ink-dim);
+    max-width:52ch;margin-top:24px;
   }
-  .hero .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;}
+  .hero .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;}
   .hero-fact{
-    margin-top:28px;font-size:0.85rem;color:var(--text-dim);
+    margin-top:32px;font-size:0.82rem;color:var(--ink-dim);
     display:flex;align-items:center;gap:10px;
+    font-family:'Big Shoulders Display',sans-serif;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;
   }
-  .hero-fact .dot{width:6px;height:6px;border-radius:50%;background:var(--terracotta);flex:none;}
-
-  .wave-scene{position:relative;aspect-ratio:4/3;border-radius:4px;overflow:hidden;box-shadow:0 20px 40px -24px rgba(38,34,28,0.35);}
-  .wave-scene svg{width:100%;height:100%;display:block;}
-  .wave-mark{animation:sway 7s ease-in-out infinite;transform-origin:60px 250px;}
-  @keyframes sway{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-3deg)}}
-  @media(prefers-reduced-motion:reduce){.wave-mark{animation:none;}}
-
-  /* ---- concept ---- */
-  .concept{padding-block:64px;border-top:1px solid rgba(38,34,28,0.1);border-bottom:1px solid rgba(38,34,28,0.1);}
-  .concept-grid{display:grid;gap:0;grid-template-columns:1fr;}
-  @media(min-width:760px){.concept-grid{grid-template-columns:1fr 1px 1fr;}}
-  .concept-div{background:rgba(38,34,28,0.1);}
-  .concept-col{padding:8px 0;}
-  @media(min-width:760px){.concept-col:first-child{padding-right:48px;}.concept-col:last-child{padding-left:48px;}}
-  .concept-tag{color:var(--text-dim);margin-bottom:14px;}
-  .concept-col h2{font-size:1.7rem;font-weight:600;margin-bottom:14px;}
-  .concept-col p{color:var(--text-dim);line-height:1.7;font-size:1rem;}
+  .hero-fact .dot{width:7px;height:7px;background:var(--accent);flex:none;}
 
   /* ---- collection ---- */
-  .collection{background:var(--paper);color:var(--text-on-paper);padding-block:72px;}
+  .collection{background:var(--bg);color:var(--ink);padding-block:56px;}
   .collection-head{
     display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-end;
-    margin-bottom:36px;
+    margin-bottom:32px;
   }
-  .collection-head h2{font-size:clamp(1.8rem,3.6vw,2.5rem);font-weight:600;color:var(--text-on-paper);}
-  .collection-head .eyebrow{color:var(--text-dim);margin-bottom:10px;}
+  .collection-head h2{font-size:clamp(2.2rem,5vw,3.4rem);}
+  .collection-head .eyebrow{margin-bottom:10px;}
   .tabs{display:flex;gap:8px;flex-wrap:wrap;}
   .tab{
-    font-family:'Big Shoulders Display',sans-serif;font-weight:700;
-    text-transform:uppercase;letter-spacing:0.06em;font-size:0.82rem;
-    padding:9px 16px;border-radius:999px;border:1px solid rgba(38,34,28,0.25);
-    background:transparent;color:var(--text-on-paper-dim);cursor:pointer;
+    font-family:'Big Shoulders Display',sans-serif;font-weight:800;
+    text-transform:uppercase;letter-spacing:0.06em;font-size:0.8rem;
+    padding:10px 18px;border-radius:0;border:2px solid var(--line);
+    background:transparent;color:var(--ink-dim);cursor:pointer;
   }
-  .tab[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+  .tab[aria-pressed="true"]{background:var(--accent);color:#0B0B0B;border-color:var(--accent);}
+  .tab:hover{border-color:var(--accent);color:var(--ink);}
 
   .grid{
-    display:grid;gap:28px;
-    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+    display:grid;gap:2px;
+    grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
+    background:var(--line);
   }
   .card{
-    background:var(--card);border:1px solid rgba(38,34,28,0.1);
+    background:var(--bg);
     display:flex;flex-direction:column;overflow:hidden;
-    text-decoration:none;color:inherit;
-    transition:transform 0.18s ease, box-shadow 0.18s ease;
+    text-decoration:none;color:inherit;position:relative;
   }
-  .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px -18px rgba(38,34,28,0.3);}
   .shot{
-    aspect-ratio:4/5;background:var(--paper-2);position:relative;overflow:hidden;
+    aspect-ratio:4/5;background:var(--bg-2);position:relative;overflow:hidden;
   }
-  .shot img{width:100%;height:100%;object-fit:cover;}
+  .shot img{width:100%;height:100%;object-fit:cover;transition:transform 0.25s ease;}
+  .card:hover .shot img{transform:scale(1.06);}
   .card-tag{
     position:absolute;top:10px;left:10px;
-    font-family:'Big Shoulders Display',sans-serif;font-size:0.68rem;font-weight:700;
+    font-family:'Big Shoulders Display',sans-serif;font-size:0.65rem;font-weight:800;
     text-transform:uppercase;letter-spacing:0.08em;
-    background:var(--ink);color:var(--paper);padding:4px 9px;
+    background:var(--accent);color:#0B0B0B;padding:5px 10px;
   }
-  .card-body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:6px;flex:1;}
+  .card-body{
+    position:absolute;left:0;right:0;bottom:0;padding:14px 14px 12px;
+    background:linear-gradient(0deg,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.55) 65%,rgba(0,0,0,0) 100%);
+    display:flex;flex-direction:column;gap:4px;
+  }
   .card-body h3{
-    font-family:'Fraunces',serif;font-weight:500;font-size:1.02rem;line-height:1.3;
+    font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:0.86rem;
+    line-height:1.2;text-transform:uppercase;letter-spacing:0.01em;color:var(--ink);
   }
   .card-price{
-    margin-top:auto;display:flex;align-items:center;justify-content:space-between;
-    font-variant-numeric:tabular-nums;padding-top:8px;
+    display:flex;align-items:center;justify-content:space-between;
+    font-variant-numeric:tabular-nums;
   }
-  .card-price .amt{font-weight:600;font-size:1.02rem;}
+  .card-price .amt{font-family:'Anton',sans-serif;font-weight:400;font-size:1.1rem;color:var(--accent);}
   .card-price .view{
-    font-family:'Big Shoulders Display',sans-serif;font-size:0.75rem;font-weight:700;
-    text-transform:uppercase;letter-spacing:0.06em;color:var(--terracotta-deep);
+    font-family:'Big Shoulders Display',sans-serif;font-size:0.68rem;font-weight:800;
+    text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-dim);
   }
 
   /* ---- closing cta ---- */
   .closing{
-    padding-block:80px;text-align:center;position:relative;
-    border-top:1px solid rgba(38,34,28,0.1);
+    padding-block:88px;text-align:center;position:relative;
+    background:var(--bg-2);border-top:1px solid var(--line);
   }
-  .closing h2{font-size:clamp(2rem,5vw,3rem);font-weight:600;max-width:22ch;margin:0 auto;}
-  .closing p{color:var(--text-dim);margin-top:16px;max-width:50ch;margin-inline:auto;}
-  .closing .btn{margin-top:32px;}
+  .closing h2{font-size:clamp(2.6rem,8vw,5.5rem);max-width:16ch;margin:0 auto;}
+  .closing h2 .accent{color:var(--accent);}
+  .closing p{color:var(--ink-dim);margin-top:18px;max-width:50ch;margin-inline:auto;}
+  .closing .btn{margin-top:36px;}
 
   footer{
-    border-top:1px solid rgba(38,34,28,0.1);
-    padding-block:32px;
+    border-top:1px solid var(--line);
+    padding-block:32px;background:var(--bg);
   }
   footer .row{
     display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;
-    font-size:0.82rem;color:var(--text-dim);
+    font-size:0.8rem;color:var(--ink-dim);
+    font-family:'Big Shoulders Display',sans-serif;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;
   }
-  footer a.store-link{color:var(--terracotta-deep);text-decoration:none;border-bottom:1px solid rgba(184,85,48,0.35);}
+  footer a.store-link{color:var(--accent);text-decoration:none;}
 </style>
 </head>
 <body>
@@ -259,77 +262,37 @@
     <div class="wordmark">Floating <em>Boot</em></div>
     <div class="nav-links">
       <a class="nav-link" href="/journal/">Journal</a>
-      <a class="btn ghost" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener">Shop the Store</a>
+      <a class="btn ghost" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener" style="padding:10px 18px;">Shop</a>
     </div>
   </div>
 </nav>
 
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>ITALY REDRAWN</span><span>·</span><span>NEW DROP EVERY WEEK</span><span>·</span><span>WORLDWIDE SHIPPING</span><span>·</span><span>NOT A SOUVENIR</span><span>·</span>
+    <span>ITALY REDRAWN</span><span>·</span><span>NEW DROP EVERY WEEK</span><span>·</span><span>WORLDWIDE SHIPPING</span><span>·</span><span>NOT A SOUVENIR</span><span>·</span>
+  </div>
+</div>
+
 <header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow hero-eyebrow">Graphic Tees · Da Como agli Stadi d'Italia</div>
-      <h1>Italy, drawn like<br>the other <span class="rule">Boot</span>.</h1>
-      <p class="lede">The Duomo, the Colosseo, the water at Como, San Siro on a matchday — landmarks and stadiums Italy has painted for centuries. We draw them again in a single woodblock line, borrowed from ukiyo-e, printed on tees, caps, and sweatshirts.</p>
-      <div class="cta-row">
-        <a class="btn" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener">Browse New Merch →</a>
-        <a class="btn ghost" href="#collection">See the Collection</a>
-      </div>
-      <div class="hero-fact"><span class="dot"></span>Shipping worldwide, priced in 17 currencies.</div>
+  <div class="wrap">
+    <div class="eyebrow">Graphic Tees · Caps · Hoodies</div>
+    <h1>Italy.<br>Not a <span class="accent">Souvenir</span>.</h1>
+    <p class="lede">The Duomo. The Colosseo. San Siro on a matchday. Redrawn in one line, no tourist-stall trash — Italy's landmarks and stadiums as graphic tees, caps and hoodies. Drops weekly.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener">Shop the Drop →</a>
+      <a class="btn ghost" href="#collection">View All</a>
     </div>
-    <div class="wave-scene" aria-hidden="true">
-      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet">
-        <defs>
-          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#F8F1E2"/>
-            <stop offset="100%" stop-color="#E7C79C"/>
-          </linearGradient>
-        </defs>
-        <rect x="0" y="0" width="400" height="300" fill="url(#sky)"/>
-        <circle cx="322" cy="92" r="28" fill="#C89A3E"/>
-        <g stroke="#C89A3E" stroke-width="2.5" stroke-linecap="round" opacity="0.75">
-          <line x1="322" y1="36" x2="322" y2="20"/>
-          <line x1="364" y1="50" x2="376" y2="39"/>
-          <line x1="378" y1="92" x2="394" y2="92"/>
-          <line x1="280" y1="50" x2="268" y2="39"/>
-        </g>
-        <ellipse cx="70" cy="222" rx="15" ry="38" fill="#4E6350"/>
-        <ellipse cx="88" cy="230" rx="12" ry="30" fill="#5C7160"/>
-        <path d="M150,150 L150,222 L168,222 L168,182 L178,182 L178,222 L196,222 L196,150 L163,128 Z" fill="#26221C"/>
-        <rect x="230" y="118" width="24" height="104" fill="#26221C"/>
-        <path d="M230,118 L242,96 L254,118 Z" fill="#26221C"/>
-        <rect x="258" y="138" width="16" height="84" fill="#26221C"/>
-        <ellipse cx="322" cy="226" rx="14" ry="34" fill="#4E6350"/>
-        <path d="M-10,222 L410,222" stroke="#26221C" stroke-width="1.5" opacity="0.25"/>
-        <g class="wave-mark" transform="translate(38,240) scale(0.85)">
-          <path d="M0,26 C6,10 20,4 30,10 C22,8 14,14 12,24 C18,16 28,14 34,20 C24,18 18,26 22,32 C12,32 2,32 0,26 Z" fill="none" stroke="#26221C" stroke-width="2" stroke-linejoin="round" opacity="0.55"/>
-        </g>
-      </svg>
-    </div>
+    <div class="hero-fact"><span class="dot"></span>50+ Pieces · Worldwide Shipping · $29–$78</div>
   </div>
 </header>
-
-<section class="concept">
-  <div class="wrap concept-grid">
-    <div class="concept-col floating">
-      <div class="eyebrow concept-tag">Lo Stivale — The Boot</div>
-      <h2>Every tee starts with a place.</h2>
-      <p>Milan's Duomo, the Colosseo, the light on Lake Como — the same landmarks that filled 1950s Italian travel posters. We redraw them in vintage-lithograph linework and in flat, minimal outline, city by city, the way a good travel poster always did.</p>
-    </div>
-    <div class="concept-div"></div>
-    <div class="concept-col">
-      <div class="eyebrow concept-tag">Ukiyo-e — The Technique</div>
-      <h2>Then we fold in a wave.</h2>
-      <p>One edition per landmark borrows the woodblock line of Japanese ukiyo-e — the swell of a Hokusai wave, flattened perspective, bold negative space — and wraps it around the same Italian skyline. Same subject, one extra technique.</p>
-    </div>
-  </div>
-</section>
 
 <section class="collection" id="collection">
   <div class="wrap">
     <div class="collection-head">
       <div>
-        <div class="eyebrow">Full Catalog · $29–$78</div>
-        <h2>Landmarks, stadiums, and the techniques we redraw them in.</h2>
+        <div class="eyebrow">Full Catalog</div>
+        <h2>Pick your city.</h2>
       </div>
       <div class="tabs" role="tablist" aria-label="Filter by collection">
         <button class="tab" type="button" data-filter="all" aria-pressed="true">All</button>
@@ -337,7 +300,7 @@
         <button class="tab" type="button" data-filter="vintage" aria-pressed="false">Vintage Travel</button>
         <button class="tab" type="button" data-filter="line" aria-pressed="false">Minimal Line</button>
         <button class="tab" type="button" data-filter="ukiyo" aria-pressed="false">Ukiyo-e Wave</button>
-        <button class="tab" type="button" data-filter="felpa" aria-pressed="false">Sweatshirts</button>
+        <button class="tab" type="button" data-filter="felpa" aria-pressed="false">Hoodies</button>
         <button class="tab" type="button" data-filter="cap" aria-pressed="false">Caps</button>
       </div>
     </div>
@@ -348,8 +311,8 @@
 
 <section class="closing">
   <div class="wrap">
-    <h2>Wear the Boot.</h2>
-    <p>Every design here ships from the Floating Boot store on Fourthwall — secure checkout, worldwide delivery, no detour.</p>
+    <h2>Get the <span class="accent">Drop</span>.</h2>
+    <p>Every piece ships from the Floating Boot store on Fourthwall — secure checkout, worldwide delivery, no detour.</p>
     <a class="btn" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener">Shop Floating Boot →</a>
   </div>
 </section>
@@ -372,11 +335,11 @@
       img:"https://cdn.fourthwall.com/customizations/sh_023e73a2-3d1c-4b97-a00a-610732a75c04/b283bcf5-9477-4b10-b5ce-e94e12a36699.webp"},
     {name:"Vesuvio Napoli - Cap", price:29.0, tag:"cap", tagLabel:"Cap", slug:"vesuvio-napoli-cap",
       img:"https://cdn.fourthwall.com/customizations/sh_023e73a2-3d1c-4b97-a00a-610732a75c04/599feac9-d2d7-4224-bb00-95d514a57c9f.webp"},
-    {name:"Colosseo Italia - Felpa Vintage Travel", price:78.0, tag:"felpa", tagLabel:"Sweatshirt", slug:"colosseo-italia-felpa-vintage-travel",
+    {name:"Colosseo Italia - Felpa Vintage Travel", price:78.0, tag:"felpa", tagLabel:"Hoodie", slug:"colosseo-italia-felpa-vintage-travel",
       img:"https://cdn.fourthwall.com/customizations/sh_023e73a2-3d1c-4b97-a00a-610732a75c04/ba86d460-8032-4e2b-88ce-6ccbcaf351eb.webp"},
-    {name:"Como Tempio Voltiano - Felpa Vintage Travel", price:78.0, tag:"felpa", tagLabel:"Sweatshirt", slug:"como-tempio-voltiano-felpa-vintage-travel",
+    {name:"Como Tempio Voltiano - Felpa Vintage Travel", price:78.0, tag:"felpa", tagLabel:"Hoodie", slug:"como-tempio-voltiano-felpa-vintage-travel",
       img:"https://cdn.fourthwall.com/customizations/sh_023e73a2-3d1c-4b97-a00a-610732a75c04/c7a187a1-d136-4e82-a5f7-311058dbf518.webp"},
-    {name:"Milano Duomo - Felpa Ukiyo-e Wave", price:78.0, tag:"felpa", tagLabel:"Sweatshirt", slug:"milano-duomo-felpa-ukiyo-e-wave",
+    {name:"Milano Duomo - Felpa Ukiyo-e Wave", price:78.0, tag:"felpa", tagLabel:"Hoodie", slug:"milano-duomo-felpa-ukiyo-e-wave",
       img:"https://cdn.fourthwall.com/customizations/sh_023e73a2-3d1c-4b97-a00a-610732a75c04/ced722ba-0024-415b-8c13-f6a306f7142e.webp"},
     {name:"Como Tempio Voltiano – Minimal Line Art", price:69.0, tag:"line", tagLabel:"Minimal Line", slug:"como-tempio-voltiano-minimal-line-art",
       img:"https://cdn.fourthwall.com/customizations/sh_023e73a2-3d1c-4b97-a00a-610732a75c04/9f0331d3-2715-4394-9fc3-8a33c2630447.webp"},
@@ -473,7 +436,7 @@
       priceRow.className = "card-price";
       var amt = document.createElement("span");
       amt.className = "amt";
-      amt.textContent = "$" + p.price.toFixed(2);
+      amt.textContent = "$" + p.price.toFixed(0);
       var view = document.createElement("span");
       view.className = "view";
       view.textContent = "View →";
@@ -482,8 +445,8 @@
       body.appendChild(h3);
       body.appendChild(priceRow);
 
+      shot.appendChild(body);
       a.appendChild(shot);
-      a.appendChild(body);
       grid.appendChild(a);
     });
   }
