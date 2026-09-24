@@ -37,6 +37,11 @@ def norm(s):
 
 def main():
     push = "--push" in sys.argv
+    if push:
+        # The repo is pushed from both the VPS (daily cron) and the PC
+        # (interactive sessions) since 2026-09-24 -- always start from the
+        # latest remote state or the push fails non-fast-forward.
+        subprocess.run(["git", "-C", REPO, "pull", "-q", "--rebase"], check=True)
     live = next_product.fetch_products()
     by_slug = {p["slug"]: p for p in live}
     by_name = {norm(p["name"]): p for p in live}
