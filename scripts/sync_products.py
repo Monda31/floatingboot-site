@@ -7,7 +7,10 @@ When a product is edited in Fourthwall (e.g. adding the QR code on the back,
 2026-09-23) its mockup gets a new image URL, and renaming a product changes
 its slug -- the 3 Milan Duomo tees were 404ing on the site for exactly that
 reason. This rewrites slug/img/price in place for every product the site
-already shows; it never adds/removes products or touches names/tags/layout.
+already shows; it never removes products or touches existing names/tags/layout.
+Since 2026-09-25 it also ADDS live products missing from the site (13 stadium
+tees/caps, incl. the Como Sinigaglia tee, had never been added), inserted after
+the last entry of the same tag.
 
 Matching: by slug first; if the slug no longer exists (product renamed),
 by the site's display name against the live product name.
@@ -64,8 +67,40 @@ def main():
                 f'{m["ws"]}img:"{img}"}}')
 
     new_html = ENTRY_RE.sub(fix, html)
+
+    # add live products that the site doesn't list yet
+    TAGS = {"stadi": "Stadi d'Italia", "cap": "Cap", "felpa": "Hoodie", "ukiyo": "Ukiyo-e Wave",
+            "vintage": "Vintage Travel", "line": "Minimal Line"}
+    STADIUM = ("Stadio", "Allianz", "Gewiss", "Unipol", "Dacia", "Arena")
+
+    def tag_for(p):
+        if p["name"].startswith(STADIUM):
+            return "stadi"
+        if "Felpa" in p["name"]:
+            return "felpa"
+        if p["name"].endswith("Cap"):
+            return "cap"
+        return {"Ukiyo-e Wave": "ukiyo", "Vintage Travel": "vintage", "Minimal Line": "line"}.get(p.get("collection_tag"))
+
+    added = []
+    on_site = {m["slug"] for m in ENTRY_RE.finditer(new_html)}
+    for p in live:
+        if p["slug"] in on_site or not p.get("image_url") or p.get("price") is None:
+            continue
+        tag = tag_for(p)
+        same = [m for m in ENTRY_RE.finditer(new_html) if f'tag:"{tag}"' in m["mid"]]
+        if not tag or not same:
+            print("  ? no place for", p["slug"])
+            continue
+        name = p["name"].replace('"', '\\"')
+        entry = (f'{{name:"{name}", price:{float(p["price"]):.1f}, tag:"{tag}", tagLabel:"{TAGS[tag]}", '
+                 f'slug:"{p["slug"]}",\n      img:"{p["image_url"]}"}}')
+        end = same[-1].end()
+        new_html = new_html[:end] + ",\n    " + entry + new_html[end:]
+        added.append(p["name"])
+        changes.append(f'{p["name"]}: added')
     total = len(ENTRY_RE.findall(html))
-    print(f"site products: {total}, changed: {len(changes)}, unmatched: {len(unmatched)}")
+    print(f"site products: {total}, changed: {len(changes)}, added: {len(added)}, unmatched: {len(unmatched)}")
     for c in changes:
         print("  ~", c)
     for u in unmatched:
