@@ -1,13 +1,21 @@
 {
   "name": "Floating Boot",
   "short_name": "Floating Boot",
-  "description": "Graphic tees that redraw Italy's landmarks in vintage travel-poster and ukiyo-e wave styles.",
+  "description": "Graphic tees that redraw Italy's landmarks, plus every Italian stadium drawn by my kid.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#F2EAD9",
-  "theme_color": "#B85530",
+  "background_color": "#0B0B0B",
+  "theme_color": "#0B0B0B",
   "icons": [
-    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
   ]
 }
