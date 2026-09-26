@@ -143,6 +143,16 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   .wordmark{font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:uppercase;align-items:center;gap:8px;}
   .wordmark em{font-style:normal;color:#FF4B1F;}
   .wordmark img{width:46px;height:auto;}
+  .wordmark{white-space:nowrap;flex-shrink:0;}
+  nav .btn{white-space:nowrap;}
+  /* phones: long "Shop the Store" button was overlapping the BOOT wordmark */
+  @media(max-width:480px){
+    nav .row{gap:10px;}
+    .wordmark{font-size:1.05rem;}
+    .wordmark img{width:36px;}
+    nav .btn{padding:8px 12px;}
+    .hide-sm{display:none;}
+  }
   .btn,.btn.ghost{border-color:#fff !important;color:#fff !important;border-radius:0 !important;}
   .btn:not(.ghost){background:#FF4B1F !important;color:#0B0B0B !important;border-color:#FF4B1F !important;}
   .post,.product-card,.related{background:#161616;border:1px solid #262626;border-radius:0;}
@@ -163,7 +173,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 <nav>
   <div class="row">
     <a class="wordmark" href="/"><img src="/logo-mark.png" alt="">Floating <em>Boot</em></a>
-    <a class="btn ghost" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener">Shop the Store</a>
+    <a class="btn ghost" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener">Shop<span class="hide-sm"> the Store</span></a>
   </div>
 </nav>
 
