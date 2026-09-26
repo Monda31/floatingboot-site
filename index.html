@@ -173,6 +173,18 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   }
   .btn.ghost:hover{border-color:var(--accent);color:var(--accent);}
 
+  /* ---- stadi story ---- */
+  .story{background:var(--bg-2);padding-block:64px;border-bottom:1px solid var(--line);}
+  .story .wrap{display:grid;gap:36px;align-items:center;}
+  @media(min-width:900px){.story .wrap{grid-template-columns:1.1fr 1fr;}}
+  .story img{width:100%;height:auto;display:block;border:2px solid var(--line);}
+  .story h2{font-size:clamp(2.2rem,6vw,4rem);margin-top:10px;}
+  .story h2 .accent{color:var(--accent);}
+  .story p{color:var(--ink-dim);line-height:1.6;margin-top:16px;max-width:52ch;}
+  .story p strong{color:var(--ink);}
+  .story .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;}
+  .offer{margin-top:24px;padding:14px 16px;border:2px solid var(--accent);font-size:0.92rem;line-height:1.5;}
+  .offer strong{color:var(--accent);}
   /* ---- marquee ---- */
   .marquee{
     background:var(--accent);color:#0B0B0B;overflow:hidden;
@@ -302,8 +314,8 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>ITALY REDRAWN</span><span>·</span><span>NEW DROP EVERY WEEK</span><span>·</span><span>WORLDWIDE SHIPPING</span><span>·</span><span>NOT A SOUVENIR</span><span>·</span>
-    <span>ITALY REDRAWN</span><span>·</span><span>NEW DROP EVERY WEEK</span><span>·</span><span>WORLDWIDE SHIPPING</span><span>·</span><span>NOT A SOUVENIR</span><span>·</span>
+    <span>ITALY REDRAWN</span><span>·</span><span>BUY 2 · 20% OFF + FREE SHIPPING</span><span>·</span><span>WORLDWIDE SHIPPING</span><span>·</span><span>NOT A SOUVENIR</span><span>·</span>
+    <span>ITALY REDRAWN</span><span>·</span><span>BUY 2 · 20% OFF + FREE SHIPPING</span><span>·</span><span>WORLDWIDE SHIPPING</span><span>·</span><span>NOT A SOUVENIR</span><span>·</span>
   </div>
 </div>
 
@@ -316,9 +328,25 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       <a class="btn" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener">Shop the Drop →</a>
       <a class="btn ghost" href="#collection">View All</a>
     </div>
-    <div class="hero-fact"><span class="dot"></span>Worldwide Shipping · $29–$78 · 15% off your first order: <strong>FORZA15</strong></div>
+    <div class="hero-fact"><span class="dot"></span>Worldwide Shipping · <strong>20% off + free shipping on orders $70+</strong>, applied at checkout · Just one piece? Use <strong>FORZA15</strong></div>
   </div>
 </header>
+
+<section class="story" id="stadi">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Stadi d'Italia</div>
+      <h2>My kid drew every <span class="accent">Italian stadium</span>.</h2>
+      <p>Colored pencils, one stadium at a time. San Siro, the Olimpico, the Maradona, the Ferraris — 18 grounds so far. We put the drawings on tees and caps, straight from the paper.</p>
+      <p><strong>How many have you been to?</strong> Wear the ones you've stood in. Or give one to the person who still talks about that match.</p>
+      <div class="offer"><strong>Collect 2 or more:</strong> 20% off + free shipping on orders $70+. A tee and a cap does it. Applied automatically at checkout.</div>
+      <div class="cta-row">
+        <a class="btn" href="#collection" id="story-shop">Shop Stadi d'Italia →</a>
+      </div>
+    </div>
+    <img src="stadi-drawings.webp" width="1612" height="1374" loading="lazy" alt="Six Italian stadiums drawn in colored pencil by a kid: Milano, Roma, Napoli, Firenze, Genova, Bologna">
+  </div>
+</section>
 
 <section class="collection" id="collection">
   <div class="wrap">
@@ -520,6 +548,11 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
   render("all");
 })();
+</script>
+<script>
+document.getElementById('story-shop').addEventListener('click',function(){
+  var t=document.querySelector('.tab[data-filter="stadi"]'); if(t) t.click();
+});
 </script>
 </body>
 </html>
