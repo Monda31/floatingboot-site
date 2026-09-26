@@ -109,10 +109,35 @@ def main():
         print("ERROR: no product entries parsed -- index.html format changed?", file=sys.stderr)
         sys.exit(1)
 
-    if new_html != html:
+    # journal articles: keep product-card image + price in step with the store
+    # (2026-09-25: cards still showed pre-price-cut $69 etc.)
+    import glob
+    CARD_RE = re.compile(r'(<a class="product-card" href="https://floatingboot-shop\.fourthwall\.com/products/(?P<slug>[^"]+)"[^>]*>\s*<img src=")'
+                         r'(?P<img>[^"]+)(".*?<div class="price">\$)(?P<price>[\d.]+)(</div>)', re.S)
+    journal_changed = []
+    for jf in glob.glob(os.path.join(REPO, "journal", "*.html")):
+        jh = open(jf, encoding="utf-8").read()
+
+        def jfix(m):
+            lp = by_slug.get(m["slug"])
+            if not lp:
+                return m.group(0)
+            price = f'{float(lp["price"]):g}'
+            img = lp.get("image_url") or m["img"]
+            if (img, price) != (m["img"], m["price"]):
+                journal_changed.append(f'{os.path.basename(jf)}: {m["slug"]}')
+            return m.group(1) + img + m.group(4) + price + m.group(6)
+        nh = CARD_RE.sub(jfix, jh)
+        if nh != jh:
+            open(jf, "w", encoding="utf-8").write(nh)
+    for c in journal_changed:
+        print("  ~ journal", c)
+    changes += [f"journal {c}" for c in journal_changed]
+
+    if new_html != html or journal_changed:
         open(INDEX, "w", encoding="utf-8").write(new_html)
         if push:
-            subprocess.run(["git", "-C", REPO, "add", "index.html"], check=True)
+            subprocess.run(["git", "-C", REPO, "add", "index.html", "journal"], check=True)
             subprocess.run(["git", "-C", REPO, "commit", "-q", "-m",
                             f"Sync {len(changes)} product(s) with live Fourthwall catalog\n\n"
                             + "\n".join(changes)], check=True)

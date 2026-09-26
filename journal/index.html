@@ -100,13 +100,37 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   footer{border-top:1px solid rgba(38,34,28,0.1);padding-block:32px;}
   footer .row{max-width:1180px;margin:0 auto;padding-inline:20px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;font-size:0.82rem;color:var(--text-dim);}
   @media(min-width:640px){footer .row{padding-inline:40px;}}
+
+  /* 2026-09-25: streetwear restyle to match the homepage (black / Anton / #FF4B1F / Boot logo).
+     Overrides the old boutique palette above instead of rewriting every rule. */
+  :root{--ink:#FFFFFF;--paper:#0B0B0B;--card:#161616;--terracotta:#FF4B1F;--terracotta-deep:#FF4B1F;--text-dim:#A8A8A8;}
+  body{background:#0B0B0B;color:#fff;}
+  h1,h2,h3,.product-card h3,.product-card .price,.related a{font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:0.01em;}
+  h1{line-height:1.02;}
+  nav{background:rgba(11,11,11,0.92);border-bottom:1px solid #222;}
+  .wordmark{font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:uppercase;align-items:center;gap:8px;}
+  .wordmark em{font-style:normal;color:#FF4B1F;}
+  .wordmark img{width:46px;height:auto;}
+  .btn,.btn.ghost{border-color:#fff !important;color:#fff !important;border-radius:0 !important;}
+  .btn:not(.ghost){background:#FF4B1F !important;color:#0B0B0B !important;border-color:#FF4B1F !important;}
+  .post,.product-card,.related{background:#161616;border:1px solid #262626;border-radius:0;}
+  .post:hover,.product-card:hover{border-color:#FF4B1F;}
+  .product-card img{background:#D9D9D9;}
+  .closing,footer{border-top:1px solid #222;}
+  article p,article li{color:#E6E6E6;}
+  a{text-decoration-color:rgba(255,75,31,0.5);}
+  .stadi-callout{display:block;text-decoration:none;color:#0B0B0B;background:#FF4B1F;padding:26px 30px;}
+  .stadi-callout .eyebrow{color:#0B0B0B;}
+  .stadi-callout h2{font-size:1.9rem;line-height:1.05;margin-top:8px;color:#0B0B0B;}
+  .stadi-callout p{color:#0B0B0B;margin-top:10px;font-weight:600;}
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders+Display:wght@700;800&family=Work+Sans:wght@400;500;600&display=swap">
 </head>
 <body>
 
 <nav>
   <div class="row">
-    <a class="wordmark" href="/">Floating <em>Boot</em></a>
+    <a class="wordmark" href="/"><img src="/logo-mark.png" alt="">Floating <em>Boot</em></a>
     <a class="btn ghost" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener">Shop the Store</a>
   </div>
 </nav>
@@ -119,6 +143,11 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   </header>
 
   <div class="list">
+    <a class="stadi-callout" href="https://floatingboot-shop.fourthwall.com/collections/stadi-ditalia?utm_source=site&utm_medium=journal&utm_campaign=stadi_callout" target="_blank" rel="noopener">
+      <div class="eyebrow">Stadi d'Italia · New collection</div>
+      <h2>My kid drew every Italian stadium.</h2>
+      <p>San Siro, the Maradona, the Olimpico and the small grounds too. Now they're tees. 15% off your first order: FORZA15 →</p>
+    </a>
     <a class="post" href="/journal/italy-themed-gifts-for-design-lovers.html">
       <div class="eyebrow">Gift Guide</div>
       <h2>Italy-themed gifts for people who actually care about design</h2>
