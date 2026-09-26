@@ -156,6 +156,17 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     letter-spacing:0.01em;display:flex;align-items:baseline;gap:8px;
   }
   .wordmark em{font-style:normal;color:var(--accent);}
+  .wordmark,.nav-link{white-space:nowrap;}
+  .wordmark{flex-shrink:0;}
+  /* phones: logo + wordmark + Journal + Shop must fit in ~350px, Journal was overlapping BOOT */
+  @media(max-width:480px){
+    nav .row{gap:10px;}
+    .wordmark{font-size:1.05rem;gap:6px;}
+    .wordmark img{width:36px;height:auto;}
+    .nav-links{gap:12px;}
+    .nav-link{font-size:0.78rem;}
+    .nav-links .btn{padding:8px 12px !important;}
+  }
   .btn{
     display:inline-flex;align-items:center;gap:8px;
     font-family:'Big Shoulders Display',sans-serif;font-weight:800;
