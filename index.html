@@ -228,6 +228,21 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     font-family:'Big Shoulders Display',sans-serif;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;
   }
   .hero-fact .dot{width:7px;height:7px;background:var(--accent);flex:none;}
+  .hero{padding-block:40px 40px;}
+  .hero h1{font-size:clamp(2.6rem,9vw,5.6rem);}
+  .hero-grid{display:grid;gap:28px;align-items:center;}
+  @media(min-width:900px){.hero-grid{grid-template-columns:1.05fr 1fr;gap:44px;}}
+  .hero-products{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border:2px solid var(--line);}
+  .hero-products a:first-child{grid-row:span 2;}
+  .hp{position:relative;display:block;background:#fff;overflow:hidden;text-decoration:none;color:#0B0B0B;}
+  .hp img{width:100%;height:100%;object-fit:contain;display:block;aspect-ratio:1/1;padding:4px 4px 34px;transition:transform .25s ease;}
+  .hero-products a:first-child img{aspect-ratio:auto;object-fit:cover;object-position:center 20%;padding:0 0 34px;}
+  .hp:hover img{transform:scale(1.04);}
+  .hp-label{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;gap:8px;
+    background:#0B0B0B;color:var(--ink);padding:8px 10px;
+    font-family:'Big Shoulders Display',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:.8rem;}
+  .hp-label .amt{color:var(--accent);flex:none;}
+  @media(max-width:899px){.hero-copy{order:1}.hero-products{order:0}}
 
   /* ---- collection ---- */
   .collection{background:var(--bg);color:var(--ink);padding-block:56px;}
@@ -332,14 +347,19 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 </div>
 
 <header class="hero">
-  <div class="wrap">
-    <div class="eyebrow">Graphic Tees · Caps · Hoodies</div>
-    <h1>Italy.<br>Not a <span class="accent">Souvenir</span>.</h1>
-    <p class="lede">The Duomo. The Colosseo. Como. Italy's landmarks as graphic tees, caps and hoodies — and every Italian stadium, drawn by my kid. No tourist-stall trash. Drops weekly.</p>
-    <div class="cta-row">
-      <a class="btn" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener">Shop the Drop →</a>
-      <a class="btn ghost" href="#collection">View All</a>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">T-shirts · Caps · Hoodies · from $45</div>
+      <h1>Italian stadiums.<br><span class="accent">Drawn by my kid.</span></h1>
+      <p class="lede">T-shirts printed with real colored-pencil drawings of Italy's football stadiums: San Siro, the Maradona, the Olimpico and 14 more. Plus Italy's landmarks on tees, caps and hoodies. Not a souvenir.</p>
+      <div class="cta-row">
+        <a class="btn" href="https://floatingboot-shop.fourthwall.com/collections/stadi-ditalia" target="_blank" rel="noopener">Shop Stadium Tees →</a>
+        <a class="btn ghost" href="#collection">View All</a>
+      </div>
     </div>
+    <div class="hero-products" id="hero-products" aria-label="Best sellers"></div>
+  </div>
+  <div class="wrap">
     <div class="hero-fact"><span class="dot"></span>Worldwide Shipping · <strong>Collect 2 Stadi: 20% off</strong> on orders $70+, applied at checkout · Just one piece? Use <strong>FORZA15</strong> · Prices excl. VAT</div>
   </div>
 </header>
@@ -562,6 +582,30 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   });
 
   render("all");
+
+  // hero: real products up front, pulled from the synced list so prices/images stay current
+  var hero = document.getElementById("hero-products");
+  // full-shirt shots (worn + flat mockups) so visitors see a T-shirt, not just the print
+  var HERO_IMG = {
+    "stadio-san-siro-milano": "https://cdn.fourthwall.com/customizations/sh_023e73a2-3d1c-4b97-a00a-610732a75c04/91f74bc9-92da-4240-8539-65b7d3ac8645.webp",
+    "stadio-diego-armando-maradona-napoli": "https://cdn.fourthwall.com/customizations/sh_023e73a2-3d1c-4b97-a00a-610732a75c04/fd9182ed-fa81-44b1-a1d3-f575cd819be1.webp",
+    "stadio-olimpico-roma": "https://cdn.fourthwall.com/customizations/sh_023e73a2-3d1c-4b97-a00a-610732a75c04/782a4683-4508-49f0-8deb-ef0e626ed094.webp"
+  };
+  Object.keys(HERO_IMG).forEach(function(slug){
+    var p = products.filter(function(x){ return x.slug === slug; })[0];
+    if(!p) return;
+    var a = document.createElement("a");
+    a.className = "hp"; a.href = BASE + "/products/" + p.slug; a.target = "_blank"; a.rel = "noopener";
+    var img = document.createElement("img");
+    img.src = HERO_IMG[slug]; img.alt = p.name + " t-shirt"; img.fetchPriority = "high";
+    var label = document.createElement("span");
+    label.className = "hp-label";
+    var n = document.createElement("span"); n.textContent = p.name.split(" - ")[1] ? p.name.split(" - ")[0].replace(/^Stadio (Diego Armando )?/, "") : p.name;
+    var amt = document.createElement("span"); amt.className = "amt"; amt.textContent = "$" + p.price.toFixed(0);
+    label.appendChild(n); label.appendChild(amt);
+    a.appendChild(img); a.appendChild(label);
+    hero.appendChild(a);
+  });
 })();
 </script>
 <script>
