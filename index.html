@@ -265,6 +265,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   .tab[aria-pressed="true"]{background:var(--accent);color:#0B0B0B;border-color:var(--accent);}
   .tab:hover{border-color:var(--accent);color:var(--ink);}
 
+  .xmas-lead{margin:-6px 0 22px;max-width:62ch;color:var(--ink-dim);}
   .price-note{margin:22px 0 0;font-size:.85rem;color:var(--ink-dim);text-align:center;}
   .grid{
     display:grid;gap:2px;
@@ -381,6 +382,20 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       </div>
     </div>
     <img src="stadi-drawings.webp" width="1612" height="1374" loading="lazy" alt="Six Italian stadiums drawn in colored pencil by a kid: Milano, Roma, Napoli, Firenze, Genova, Bologna">
+  </div>
+</section>
+
+<section class="collection" id="natale">
+  <div class="wrap">
+    <div class="collection-head">
+      <div>
+        <div class="eyebrow">Christmas Gifts</div>
+        <h2>Under the tree.</h2>
+      </div>
+    </div>
+    <p class="xmas-lead">My kid drew every Italian stadium. For Christmas each one wears a Santa hat. Tees, sweatshirts and mugs, printed to order in the EU and sold on Etsy.</p>
+    <div class="grid" id="xmas-grid"></div>
+    <p class="price-note">Prices in USD. Shipping and EU VAT are shown at checkout on Etsy. Order by early December for delivery before Christmas.</p>
   </div>
 </section>
 
@@ -619,6 +634,37 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 document.getElementById('story-shop').addEventListener('click',function(){
   var t=document.querySelector('.tab[data-filter="stadi"]'); if(t) t.click();
 });
+</script>
+<script>
+(function(){
+  var items = [
+    {name:"Sinigaglia - Como Christmas T-Shirt", price:39, url:"https://www.etsy.com/listing/4588222573/stadio-sinigaglia-como-christmas-t-shirt", img:"xmas/como-tee.jpg"},
+    {name:"Maradona - Napoli Christmas T-Shirt", price:39, url:"https://www.etsy.com/listing/4588222375/stadio-maradona-napoli-christmas-t-shirt", img:"xmas/napoli-tee.jpg"},
+    {name:"San Siro - Milano Christmas T-Shirt", price:39, url:"https://www.etsy.com/listing/4588222105/stadio-san-siro-milano-christmas-t-shirt", img:"xmas/sansiro-tee.jpg"},
+    {name:"Sinigaglia - Como Christmas Sweatshirt", price:54, url:"https://www.etsy.com/listing/4588222675/stadio-sinigaglia-como-christmas", img:"xmas/como-sweat.jpg"},
+    {name:"Maradona - Napoli Christmas Sweatshirt", price:54, url:"https://www.etsy.com/listing/4588227624/stadio-maradona-napoli-christmas", img:"xmas/napoli-sweat.jpg"},
+    {name:"San Siro - Milano Christmas Sweatshirt", price:54, url:"https://www.etsy.com/listing/4588222211/stadio-san-siro-milano-christmas", img:"xmas/sansiro-sweat.jpg"},
+    {name:"Sinigaglia - Como Christmas Mug", price:19, url:"https://www.etsy.com/listing/4588227950/stadio-sinigaglia-como-christmas-mug", img:"xmas/como-mug.jpg"},
+    {name:"Maradona - Napoli Christmas Mug", price:19, url:"https://www.etsy.com/listing/4588227682/stadio-maradona-napoli-christmas-mug", img:"xmas/napoli-mug.jpg"},
+    {name:"San Siro - Milano Christmas Mug", price:19, url:"https://www.etsy.com/listing/4588227506/stadio-san-siro-milano-christmas-mug", img:"xmas/sansiro-mug.jpg"}
+  ];
+  var grid = document.getElementById("xmas-grid");
+  items.forEach(function(p){
+    var a = document.createElement("a");
+    a.className = "card"; a.href = p.url; a.target = "_blank"; a.rel = "noopener";
+    var shot = document.createElement("div"); shot.className = "shot";
+    var tag = document.createElement("span"); tag.className = "card-tag"; tag.textContent = "Christmas";
+    var img = document.createElement("img"); img.src = p.img; img.alt = p.name; img.loading = "lazy";
+    shot.appendChild(img); shot.appendChild(tag);
+    var body = document.createElement("div"); body.className = "card-body";
+    var h3 = document.createElement("h3"); h3.textContent = p.name;
+    var row = document.createElement("div"); row.className = "card-price";
+    var amt = document.createElement("span"); amt.className = "amt"; amt.textContent = "$" + p.price;
+    var view = document.createElement("span"); view.className = "view"; view.textContent = "On Etsy \u2192";
+    row.appendChild(amt); row.appendChild(view); body.appendChild(h3); body.appendChild(row);
+    shot.appendChild(body); a.appendChild(shot); grid.appendChild(a);
+  });
+})();
 </script>
 </body>
 </html>
