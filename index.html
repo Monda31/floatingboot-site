@@ -337,6 +337,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   <div class="wrap row">
     <div class="wordmark"><img src="/logo-mark.png" alt="" width="54" height="37" style="align-self:center;margin-right:2px;">Floating <em>Boot</em></div>
     <div class="nav-links">
+      <a class="nav-link" href="#lifestyle">New</a>
       <a class="nav-link" href="/journal/">Journal</a>
       <a class="btn ghost" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener" style="padding:10px 18px;">Shop</a>
     </div>
@@ -382,6 +383,20 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       </div>
     </div>
     <img src="stadi-drawings.webp" width="1612" height="1374" loading="lazy" alt="Six Italian stadiums drawn in colored pencil by a kid: Milano, Roma, Napoli, Firenze, Genova, Bologna">
+  </div>
+</section>
+
+<section class="collection" id="lifestyle">
+  <div class="wrap">
+    <div class="collection-head">
+      <div>
+        <div class="eyebrow">New · Italian Lifestyle</div>
+        <h2>Italy, in a tee.</h2>
+      </div>
+    </div>
+    <p class="xmas-lead">Aperitivo, espresso, Milano, Napoli and a little Italian time. New vintage-print tees, printed to order in the EU and sold on Etsy. Illustrations created with AI tools and finished by us.</p>
+    <div class="grid" id="life-grid"></div>
+    <p class="price-note">Prices in USD. Shipping and EU VAT are shown at checkout on Etsy.</p>
   </div>
 </section>
 
@@ -654,6 +669,27 @@ document.getElementById('story-shop').addEventListener('click',function(){
     a.className = "card"; a.href = p.url; a.target = "_blank"; a.rel = "noopener";
     var shot = document.createElement("div"); shot.className = "shot";
     var tag = document.createElement("span"); tag.className = "card-tag"; tag.textContent = "Christmas";
+    var img = document.createElement("img"); img.src = p.img; img.alt = p.name; img.loading = "lazy";
+    shot.appendChild(img); shot.appendChild(tag);
+    var body = document.createElement("div"); body.className = "card-body";
+    var h3 = document.createElement("h3"); h3.textContent = p.name;
+    var row = document.createElement("div"); row.className = "card-price";
+    var amt = document.createElement("span"); amt.className = "amt"; amt.textContent = "$" + p.price;
+    var view = document.createElement("span"); view.className = "view"; view.textContent = "On Etsy \u2192";
+    row.appendChild(amt); row.appendChild(view); body.appendChild(h3); body.appendChild(row);
+    shot.appendChild(body); a.appendChild(shot); grid.appendChild(a);
+  });
+})();
+</script>
+<script>
+(function(){
+  var items = [{"name": "Aperitivo Social Club T-Shirt", "price": 29, "url": "https://www.etsy.com/listing/4590361765/aperitivo-social-club-t-shirt-italian", "img": "lifestyle/aperitivo_social_club.jpg", "tag": "Lifestyle"}, {"name": "Espresso Then Everything T-Shirt", "price": 29, "url": "https://www.etsy.com/listing/4590361985/espresso-then-everything-t-shirt-moka", "img": "lifestyle/espresso_then_everything.jpg", "tag": "Lifestyle"}, {"name": "Italian Time Is Different T-Shirt", "price": 29, "url": "https://www.etsy.com/listing/4590362071/italian-time-is-different-t-shirt-funny", "img": "lifestyle/italian_time_is_different.jpg", "tag": "Lifestyle"}, {"name": "Milano Made Me T-Shirt", "price": 29, "url": "https://www.etsy.com/listing/4590362159/milano-made-me-t-shirt-milan-italy-duomo", "img": "lifestyle/milano_made_me.jpg", "tag": "City"}, {"name": "Napoli Is a Feeling T-Shirt", "price": 29, "url": "https://www.etsy.com/listing/4590372714/napoli-is-a-feeling-t-shirt-naples-italy", "img": "lifestyle/napoli_is_a_feeling.jpg", "tag": "City"}, {"name": "A Piece of Italy T-Shirt", "price": 29, "url": "https://www.etsy.com/listing/4590372898/a-piece-of-italy-t-shirt-italy-stamp-tee", "img": "lifestyle/piece_of_italy.jpg", "tag": "Lifestyle"}, {"name": "Christmas at Nonna's T-Shirt", "price": 29, "url": "https://www.etsy.com/listing/4590372268/christmas-at-nonnas-t-shirt-italian", "img": "lifestyle/christmas_at_nonnas.jpg", "tag": "Christmas"}, {"name": "Panettone Season T-Shirt", "price": 29, "url": "https://www.etsy.com/listing/4590372816/panettone-season-t-shirt-italian", "img": "lifestyle/panettone_season.jpg", "tag": "Christmas"}];
+  var grid = document.getElementById("life-grid");
+  items.forEach(function(p){
+    var a = document.createElement("a");
+    a.className = "card"; a.href = p.url; a.target = "_blank"; a.rel = "noopener";
+    var shot = document.createElement("div"); shot.className = "shot";
+    var tag = document.createElement("span"); tag.className = "card-tag"; tag.textContent = p.tag;
     var img = document.createElement("img"); img.src = p.img; img.alt = p.name; img.loading = "lazy";
     shot.appendChild(img); shot.appendChild(tag);
     var body = document.createElement("div"); body.className = "card-body";
