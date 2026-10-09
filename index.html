@@ -38,7 +38,7 @@
   "url": "https://floatingboot.com/",
   "description": "Graphic tees, caps and sweatshirts that redraw Italy's landmarks in vintage travel-poster and ukiyo-e wave styles, plus every Italian stadium drawn by my kid.",
   "image": "https://floatingboot.com/og-image.jpg",
-  "sameAs": ["https://floatingboot-shop.fourthwall.com"],
+  "sameAs": ["https://www.etsy.com/shop/FloatingBoot", "https://floatingboot-shop.fourthwall.com"],
   "makesOffer": {
     "@type": "AggregateOffer",
     "priceCurrency": "USD",
@@ -339,7 +339,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     <div class="nav-links">
       <a class="nav-link" href="#lifestyle">New</a>
       <a class="nav-link" href="/journal/">Journal</a>
-      <a class="btn ghost" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener" style="padding:10px 18px;">Shop</a>
+      <a class="btn ghost" href="https://www.etsy.com/shop/FloatingBoot" target="_blank" rel="noopener" style="padding:10px 18px;">Shop</a>
     </div>
   </div>
 </nav>
@@ -354,14 +354,14 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 <header class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <div class="eyebrow">T-shirts · Caps · Hoodies · from $45</div>
+      <div class="eyebrow">T-shirts $33 · printed in the EU · Caps · Hoodies</div>
       <h1>Italian stadiums.<br><span class="accent">Drawn by my kid.</span></h1>
       <p class="lede">T-shirts printed with real colored-pencil drawings of Italy's football stadiums: San Siro, the Maradona, the Olimpico and 14 more. Plus Italy's landmarks on tees, caps and hoodies. Not a souvenir.</p>
       <div class="cta-row">
-        <a class="btn" href="https://floatingboot-shop.fourthwall.com/collections/stadi-ditalia" target="_blank" rel="noopener">Shop Stadium Tees →</a>
+        <a class="btn" href="https://www.etsy.com/shop/FloatingBoot" target="_blank" rel="noopener">Shop on Etsy →</a>
         <a class="btn ghost" href="#collection">View All</a>
       </div>
-      <p class="etsy-note">In Europe? The stadium tees are also on <a href="https://www.etsy.com/shop/FloatingBoot" target="_blank" rel="noopener">Etsy</a>, printed in the EU with lower shipping.</p>
+      <p class="etsy-note">Tees are sold on <a href="https://www.etsy.com/shop/FloatingBoot" target="_blank" rel="noopener">Etsy</a>, printed in the EU. Caps and hoodies on our <a href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener">Fourthwall store</a>.</p>
     </div>
     <div class="hero-products" id="hero-products" aria-label="Best sellers"></div>
   </div>
@@ -440,10 +440,10 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 <section class="closing">
   <div class="wrap">
     <h2>Get the <span class="accent">Drop</span>.</h2>
-    <p>Every piece ships from the Floating Boot store on Fourthwall — secure checkout, worldwide delivery, no detour. In Europe? The stadium tees are also on Etsy, printed in the EU.</p>
+    <p>Tees ship from our Etsy shop, printed in the EU. Caps and hoodies ship from the Floating Boot store on Fourthwall.</p>
     <div class="cta-row closing-ctas">
-      <a class="btn" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener">Shop Floating Boot →</a>
-      <a class="btn ghost" href="https://www.etsy.com/shop/FloatingBoot" target="_blank" rel="noopener">Europe: Shop on Etsy →</a>
+      <a class="btn" href="https://www.etsy.com/shop/FloatingBoot" target="_blank" rel="noopener">Shop on Etsy →</a>
+      <a class="btn ghost" href="https://floatingboot-shop.fourthwall.com" target="_blank" rel="noopener">Caps &amp; Hoodies →</a>
     </div>
   </div>
 </section>
@@ -459,6 +459,29 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 <script>
 (function(){
   var BASE = "https://floatingboot-shop.fourthwall.com";
+  // Products also sold on Etsy (printed in the EU): link there at the Etsy price. Kept outside `products` so sync_products.py never touches it.
+  var ETSY_PRICE = 33;
+  var ETSY = {
+    "allianz-stadium-torino": "https://www.etsy.com/listing/4583185316/allianz-stadium-torino-t-shirt-hand",
+    "gewiss-stadium-bergamo": "https://www.etsy.com/listing/4583185522/gewiss-stadium-bergamo-t-shirt-hand",
+    "stadio-artemio-franchi-firenze": "https://www.etsy.com/listing/4583185732/stadio-artemio-franchi-firenze-t-shirt",
+    "stadio-diego-armando-maradona-napoli": "https://www.etsy.com/listing/4583185832/stadio-diego-armando-maradona-napoli-t",
+    "stadio-giovanni-zini-cremona": "https://www.etsy.com/listing/4583187798/stadio-giovanni-zini-cremona-t-shirt",
+    "stadio-luigi-ferraris-genova": "https://www.etsy.com/listing/4583187896/stadio-luigi-ferraris-genova-t-shirt",
+    "stadio-olimpico-roma": "https://www.etsy.com/listing/4583176031/stadio-olimpico-roma-t-shirt-hand-drawn",
+    "stadio-pier-cesare-tombolato-cittadella": "https://www.etsy.com/listing/4583176167/stadio-pier-cesare-tombolato-cittadella",
+    "stadio-renato-dallara-bologna": "https://www.etsy.com/listing/4583176323/stadio-renato-dallara-bologna-t-shirt",
+    "stadio-san-siro-milano": "https://www.etsy.com/listing/4583176663/stadio-san-siro-milano-t-shirt-hand",
+    "unipol-domus-cagliari": "https://www.etsy.com/listing/4583188756/unipol-domus-cagliari-t-shirt-hand-drawn",
+    "stadio-renzo-barbera-palermo": "https://www.etsy.com/listing/4583176461/stadio-renzo-barbera-palermo-t-shirt",
+    "dacia-arena-udine": "https://www.etsy.com/listing/4583185430/dacia-arena-udine-t-shirt-hand-drawn",
+    "stadio-ennio-tardini-parma": "https://www.etsy.com/listing/4583185926/stadio-ennio-tardini-parma-t-shirt-hand",
+    "stadio-marcantonio-bentegodi-verona": "https://www.etsy.com/listing/4583175905/stadio-marcantonio-bentegodi-verona-t",
+    "stadio-giuseppe-sinigaglia-como": "https://www.etsy.com/listing/4583139376/stadio-sinigaglia-como-t-shirt-hand",
+    "stadio-alberto-picco-la-spezia": "https://www.etsy.com/listing/4583185652/stadio-alberto-picco-la-spezia-t-shirt"
+  };
+  function shopUrl(p){ return ETSY[p.slug] || (BASE + "/products/" + p.slug); }
+  function shopPrice(p){ return ETSY[p.slug] ? ETSY_PRICE : p.price; }
   var products = [
     {name:"Como Tempio Voltiano - Cap", price:29.0, tag:"cap", tagLabel:"Cap", slug:"como-tempio-voltiano-cap",
       img:"https://cdn.fourthwall.com/customizations/sh_023e73a2-3d1c-4b97-a00a-610732a75c04/75c3fe03-10d3-4d21-ba78-311e4b0c9a81.webp"},
@@ -574,7 +597,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       if(filter !== "all" && p.tag !== filter) return;
       var a = document.createElement("a");
       a.className = "card";
-      a.href = BASE + "/products/" + p.slug;
+      a.href = shopUrl(p);
       a.target = "_blank";
       a.rel = "noopener";
 
@@ -599,7 +622,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       priceRow.className = "card-price";
       var amt = document.createElement("span");
       amt.className = "amt";
-      amt.textContent = "$" + p.price.toFixed(0);
+      amt.textContent = "$" + shopPrice(p).toFixed(0);
       var view = document.createElement("span");
       view.className = "view";
       view.textContent = "View →";
@@ -636,13 +659,13 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     var p = products.filter(function(x){ return x.slug === slug; })[0];
     if(!p) return;
     var a = document.createElement("a");
-    a.className = "hp"; a.href = BASE + "/products/" + p.slug; a.target = "_blank"; a.rel = "noopener";
+    a.className = "hp"; a.href = shopUrl(p); a.target = "_blank"; a.rel = "noopener";
     var img = document.createElement("img");
     img.src = HERO_IMG[slug]; img.alt = p.name + " t-shirt"; img.fetchPriority = "high";
     var label = document.createElement("span");
     label.className = "hp-label";
     var n = document.createElement("span"); n.textContent = p.name.split(" - ")[1] ? p.name.split(" - ")[0].replace(/^Stadio (Diego Armando )?/, "") : p.name;
-    var amt = document.createElement("span"); amt.className = "amt"; amt.textContent = "$" + p.price.toFixed(0);
+    var amt = document.createElement("span"); amt.className = "amt"; amt.textContent = "$" + shopPrice(p).toFixed(0);
     label.appendChild(n); label.appendChild(amt);
     a.appendChild(img); a.appendChild(label);
     hero.appendChild(a);
@@ -657,9 +680,9 @@ document.getElementById('story-shop').addEventListener('click',function(){
 <script>
 (function(){
   var items = [
-    {name:"Sinigaglia - Como Christmas T-Shirt", price:29, url:"https://www.etsy.com/listing/4588222573/stadio-sinigaglia-como-christmas-t-shirt", img:"xmas/como-tee.jpg"},
-    {name:"Maradona - Napoli Christmas T-Shirt", price:29, url:"https://www.etsy.com/listing/4588222375/stadio-maradona-napoli-christmas-t-shirt", img:"xmas/napoli-tee.jpg"},
-    {name:"San Siro - Milano Christmas T-Shirt", price:29, url:"https://www.etsy.com/listing/4588222105/stadio-san-siro-milano-christmas-t-shirt", img:"xmas/sansiro-tee.jpg"},
+    {name:"Sinigaglia - Como Christmas T-Shirt", price:33, url:"https://www.etsy.com/listing/4588222573/stadio-sinigaglia-como-christmas-t-shirt", img:"xmas/como-tee.jpg"},
+    {name:"Maradona - Napoli Christmas T-Shirt", price:33, url:"https://www.etsy.com/listing/4588222375/stadio-maradona-napoli-christmas-t-shirt", img:"xmas/napoli-tee.jpg"},
+    {name:"San Siro - Milano Christmas T-Shirt", price:33, url:"https://www.etsy.com/listing/4588222105/stadio-san-siro-milano-christmas-t-shirt", img:"xmas/sansiro-tee.jpg"},
     {name:"Sinigaglia - Como Christmas Sweatshirt", price:54, url:"https://www.etsy.com/listing/4588222675/stadio-sinigaglia-como-christmas", img:"xmas/como-sweat.jpg"},
     {name:"Maradona - Napoli Christmas Sweatshirt", price:54, url:"https://www.etsy.com/listing/4588227624/stadio-maradona-napoli-christmas", img:"xmas/napoli-sweat.jpg"},
     {name:"San Siro - Milano Christmas Sweatshirt", price:54, url:"https://www.etsy.com/listing/4588222211/stadio-san-siro-milano-christmas", img:"xmas/sansiro-sweat.jpg"},
@@ -687,7 +710,7 @@ document.getElementById('story-shop').addEventListener('click',function(){
 </script>
 <script>
 (function(){
-  var items = [{"name": "Aperitivo Social Club T-Shirt", "price": 29, "url": "https://www.etsy.com/listing/4590361765/aperitivo-social-club-t-shirt-italian", "img": "lifestyle/aperitivo_social_club.jpg", "tag": "Lifestyle"}, {"name": "Espresso Then Everything T-Shirt", "price": 29, "url": "https://www.etsy.com/listing/4590361985/espresso-then-everything-t-shirt-moka", "img": "lifestyle/espresso_then_everything.jpg", "tag": "Lifestyle"}, {"name": "Italian Time Is Different T-Shirt", "price": 29, "url": "https://www.etsy.com/listing/4590362071/italian-time-is-different-t-shirt-funny", "img": "lifestyle/italian_time_is_different.jpg", "tag": "Lifestyle"}, {"name": "Milano Made Me T-Shirt", "price": 29, "url": "https://www.etsy.com/listing/4590362159/milano-made-me-t-shirt-milan-italy-duomo", "img": "lifestyle/milano_made_me.jpg", "tag": "City"}, {"name": "Napoli Is a Feeling T-Shirt", "price": 29, "url": "https://www.etsy.com/listing/4590372714/napoli-is-a-feeling-t-shirt-naples-italy", "img": "lifestyle/napoli_is_a_feeling.jpg", "tag": "City"}, {"name": "A Piece of Italy T-Shirt", "price": 29, "url": "https://www.etsy.com/listing/4590372898/a-piece-of-italy-t-shirt-italy-stamp-tee", "img": "lifestyle/piece_of_italy.jpg", "tag": "Lifestyle"}, {"name": "Christmas at Nonna's T-Shirt", "price": 29, "url": "https://www.etsy.com/listing/4590372268/christmas-at-nonnas-t-shirt-italian", "img": "lifestyle/christmas_at_nonnas.jpg", "tag": "Christmas"}, {"name": "Panettone Season T-Shirt", "price": 29, "url": "https://www.etsy.com/listing/4590372816/panettone-season-t-shirt-italian", "img": "lifestyle/panettone_season.jpg", "tag": "Christmas"}];
+  var items = [{"name": "Aperitivo Social Club T-Shirt", "price": 33, "url": "https://www.etsy.com/listing/4590361765/aperitivo-social-club-t-shirt-italian", "img": "lifestyle/aperitivo_social_club.jpg", "tag": "Lifestyle"}, {"name": "Espresso Then Everything T-Shirt", "price": 33, "url": "https://www.etsy.com/listing/4590361985/espresso-then-everything-t-shirt-moka", "img": "lifestyle/espresso_then_everything.jpg", "tag": "Lifestyle"}, {"name": "Italian Time Is Different T-Shirt", "price": 33, "url": "https://www.etsy.com/listing/4590362071/italian-time-is-different-t-shirt-funny", "img": "lifestyle/italian_time_is_different.jpg", "tag": "Lifestyle"}, {"name": "Milano Made Me T-Shirt", "price": 33, "url": "https://www.etsy.com/listing/4590362159/milano-made-me-t-shirt-milan-italy-duomo", "img": "lifestyle/milano_made_me.jpg", "tag": "City"}, {"name": "Napoli Is a Feeling T-Shirt", "price": 33, "url": "https://www.etsy.com/listing/4590372714/napoli-is-a-feeling-t-shirt-naples-italy", "img": "lifestyle/napoli_is_a_feeling.jpg", "tag": "City"}, {"name": "A Piece of Italy T-Shirt", "price": 33, "url": "https://www.etsy.com/listing/4590372898/a-piece-of-italy-t-shirt-italy-stamp-tee", "img": "lifestyle/piece_of_italy.jpg", "tag": "Lifestyle"}, {"name": "Christmas at Nonna's T-Shirt", "price": 33, "url": "https://www.etsy.com/listing/4590372268/christmas-at-nonnas-t-shirt-italian", "img": "lifestyle/christmas_at_nonnas.jpg", "tag": "Christmas"}, {"name": "Panettone Season T-Shirt", "price": 33, "url": "https://www.etsy.com/listing/4590372816/panettone-season-t-shirt-italian", "img": "lifestyle/panettone_season.jpg", "tag": "Christmas"}];
   var grid = document.getElementById("life-grid");
   items.forEach(function(p){
     var a = document.createElement("a");
