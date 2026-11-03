@@ -43,8 +43,8 @@
     "@type": "AggregateOffer",
     "priceCurrency": "USD",
     "lowPrice": "19",
-    "highPrice": "60",
-    "offerCount": "40",
+    "highPrice": "68",
+    "offerCount": "57",
     "url": "https://www.etsy.com/shop/FloatingBoot"
   }
 }
@@ -256,7 +256,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     .hero-side{order:1;}
     .hero-rest{order:2;}
   }
-  .coll-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border-bottom:1px solid var(--line);}
+  .coll-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);border-bottom:1px solid var(--line);}
   .coll-nav a{background:var(--bg-2);text-align:center;padding:16px 8px;text-decoration:none;
     font-family:'Big Shoulders Display',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:.9rem;}
   .coll-nav a:hover{color:var(--accent);}
@@ -407,8 +407,9 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 </header>
 
 <div class="coll-nav" role="navigation" aria-label="Collections">
-  <a href="#collection">Stadi d'Italia</a>
+  <a href="#collection">Stadi</a>
   <a href="#natale">Christmas</a>
+  <a href="#landmarks">Landmarks</a>
   <a href="#lifestyle">Lifestyle</a>
 </div>
 
@@ -441,7 +442,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   <div class="wrap">
     <div class="collection-head">
       <div>
-        <div class="eyebrow">Stadi d'Italia · 17 stadiums</div>
+        <div class="eyebrow">Stadi d'Italia · 17 stadiums · tees and hoodies</div>
         <h2>Pick your stadium.</h2>
       </div>
     </div>
@@ -469,6 +470,20 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     <p class="xmas-lead">My kid drew every Italian stadium. For Christmas each one wears a Santa hat. Tees, sweatshirts and mugs, printed to order in the EU and sold on Etsy.</p>
     <div class="grid" id="xmas-grid"></div>
     <p class="price-note">Prices in USD. Shipping and EU VAT are shown at checkout on Etsy. Order by early December for delivery before Christmas.</p>
+  </div>
+</section>
+
+<section class="collection" id="landmarks">
+  <div class="wrap">
+    <div class="collection-head">
+      <div>
+        <div class="eyebrow">Vintage Travel · Minimal Line · Ukiyo-e Wave</div>
+        <h2>Italy's landmarks.</h2>
+      </div>
+    </div>
+    <p class="xmas-lead">The Duomo, the Colosseo, Como, Portofino, Vesuvio and more, as vintage travel posters, minimal lines and Japanese-style waves. Printed to order in the EU and sold on Etsy. Illustrations created with AI tools and finished by us.</p>
+    <div class="grid" id="landmark-grid"></div>
+    <p class="price-note">Prices in USD. Shipping and EU VAT are shown at checkout on Etsy.</p>
   </div>
 </section>
 
@@ -626,6 +641,129 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     "img": "stadi/stadio-pier-cesare-tombolato-cittadella.jpg"
   }
 ];
+  var LANDMARKS = [
+  {
+    "name": "Colosseo - Ukiyo-e Wave",
+    "price": 33,
+    "url": "https://www.etsy.com/listing/4608832349/colosseum-ukiyo-e-wave-t-shirt-rome",
+    "img": "landmarks/ukiyo-colosseo.jpg",
+    "tag": "Ukiyo-e Wave"
+  },
+  {
+    "name": "Milano Duomo - Ukiyo-e Wave",
+    "price": 33,
+    "url": "https://www.etsy.com/listing/4608852992/milan-duomo-ukiyo-e-wave-t-shirt-milano",
+    "img": "landmarks/ukiyo-milano.jpg",
+    "tag": "Ukiyo-e Wave"
+  },
+  {
+    "name": "Tempio Voltiano - Ukiyo-e Wave",
+    "price": 33,
+    "url": "https://www.etsy.com/listing/4608853082/lake-como-tempio-voltiano-ukiyo-e-wave-t",
+    "img": "landmarks/ukiyo-como.jpg",
+    "tag": "Ukiyo-e Wave"
+  },
+  {
+    "name": "Porto Cervo - Sardegna",
+    "price": 33,
+    "url": "https://www.etsy.com/listing/4608832667/porto-cervo-sardinia-wave-t-shirt-costa",
+    "img": "landmarks/ukiyo-portocervo.jpg",
+    "tag": "Ukiyo-e Wave"
+  },
+  {
+    "name": "Milano Duomo - Lithograph",
+    "price": 33,
+    "url": "https://www.etsy.com/listing/4608853326/milano-duomo-vintage-lithograph-t-shirt",
+    "img": "landmarks/vintage-milano-litho.jpg",
+    "tag": "Vintage Travel"
+  },
+  {
+    "name": "Milano Duomo - Art Deco",
+    "price": 33,
+    "url": "https://www.etsy.com/listing/4608832855/milano-duomo-art-deco-t-shirt-milan",
+    "img": "landmarks/vintage-milano-deco.jpg",
+    "tag": "Vintage Travel"
+  },
+  {
+    "name": "Tempio Voltiano - 1950s Travel",
+    "price": 33,
+    "url": "https://www.etsy.com/listing/4608832967/lake-como-tempio-voltiano-vintage-travel",
+    "img": "landmarks/vintage-como.jpg",
+    "tag": "Vintage Travel"
+  },
+  {
+    "name": "Colosseo - Travel Poster",
+    "price": 33,
+    "url": "https://www.etsy.com/listing/4608853636/colosseum-vintage-travel-poster-t-shirt",
+    "img": "landmarks/vintage-colosseo.jpg",
+    "tag": "Vintage Travel"
+  },
+  {
+    "name": "Palermo - Sicilia",
+    "price": 33,
+    "url": "https://www.etsy.com/listing/4608833153/palermo-sicily-vintage-travel-poster-t",
+    "img": "landmarks/vintage-palermo.jpg",
+    "tag": "Vintage Travel"
+  },
+  {
+    "name": "Tempio Voltiano - Minimal",
+    "price": 33,
+    "url": "https://www.etsy.com/listing/4608853820/lake-como-tempio-voltiano-minimal-t",
+    "img": "landmarks/minimal-como.jpg",
+    "tag": "Minimal Line"
+  },
+  {
+    "name": "Portofino - Minimal Line",
+    "price": 33,
+    "url": "https://www.etsy.com/listing/4608833321/portofino-liguria-minimal-line-t-shirt",
+    "img": "landmarks/minimal-portofino.jpg",
+    "tag": "Minimal Line"
+  },
+  {
+    "name": "Vesuvio - Minimal Line",
+    "price": 33,
+    "url": "https://www.etsy.com/listing/4608833401/vesuvius-naples-minimal-line-t-shirt",
+    "img": "landmarks/minimal-vesuvio.jpg",
+    "tag": "Minimal Line"
+  },
+  {
+    "name": "Colosseo Hoodie - Travel Poster",
+    "price": 64,
+    "url": "https://www.etsy.com/listing/4608833509/colosseum-vintage-travel-poster-hoodie",
+    "img": "landmarks/hoodie-vintage-colosseo.jpg",
+    "tag": "Hoodie"
+  },
+  {
+    "name": "Milano Duomo Hoodie - Ukiyo-e",
+    "price": 64,
+    "url": "https://www.etsy.com/listing/4608833751/milan-duomo-ukiyo-e-wave-hoodie-milano",
+    "img": "landmarks/hoodie-ukiyo-milano.jpg",
+    "tag": "Hoodie"
+  }
+];
+  var STADI_HOODIES = [
+  {
+    "name": "San Siro Hoodie",
+    "price": 68,
+    "url": "https://www.etsy.com/listing/4608833571/stadio-san-siro-milano-hoodie-colored",
+    "img": "landmarks/hoodie-stadio-san-siro-milano.jpg",
+    "tag": "Hoodie"
+  },
+  {
+    "name": "Maradona Hoodie",
+    "price": 68,
+    "url": "https://www.etsy.com/listing/4608833831/stadio-maradona-napoli-hoodie-colored",
+    "img": "landmarks/hoodie-stadio-diego-armando-maradona-napoli.jpg",
+    "tag": "Hoodie"
+  },
+  {
+    "name": "Sinigaglia Hoodie",
+    "price": 68,
+    "url": "https://www.etsy.com/listing/4608854496/stadio-sinigaglia-como-hoodie-colored",
+    "img": "landmarks/hoodie-stadio-giuseppe-sinigaglia-como.jpg",
+    "tag": "Hoodie"
+  }
+];
   var XMAS = [
     {name:"Sinigaglia - Como Christmas T-Shirt", price:33, url:"https://www.etsy.com/listing/4588222573/stadio-sinigaglia-como-christmas-t-shirt", img:"xmas/como-tee.jpg"},
     {name:"Maradona - Napoli Christmas T-Shirt", price:33, url:"https://www.etsy.com/listing/4588222375/stadio-maradona-napoli-christmas-t-shirt", img:"xmas/napoli-tee.jpg"},
@@ -744,6 +882,8 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     });
   }
   renderGrid("product-grid", STADI, "Stadi d'Italia", true);
+  renderGrid("product-grid", STADI_HOODIES, "Hoodie", true);
+  renderGrid("landmark-grid", LANDMARKS, "Landmarks", true);
   renderGrid("xmas-grid", XMAS, "Christmas");
   renderGrid("life-grid", LIFE, "Lifestyle");
   renderGrid("lake-grid", LAKE, "Lake Como", true);
